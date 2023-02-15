@@ -1,5 +1,5 @@
 type TObject = Record<string, any>
-type TClassNamesArguments = (string |  any[] | TObject)[]
+type TClassNamesArguments = (string| undefined |  any[] | TObject)[]
 
 export default function classNames(...rest:TClassNamesArguments):string {
     const result: string[] = [];

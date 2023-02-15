@@ -28,8 +28,22 @@ export function buildLoaders(options: BuildOptions):webpack.RuleSetRule[] {
         use: 'ts-loader',
         exclude: /node-modules/
     }
+
+    const svgLoader = {
+        test: /\.svg$/,
+        use: '@svgr/webpack',
+    }
+
+    const fileLoader = {
+      test: /\.(png|jpe?g|gif|woff|ttf)$/i,
+      use: [{
+        loader: 'file-loader',
+      }]
+  }
     return [
+        fileLoader,
+        svgLoader,
         typescriptLoader,
-        styleLoader
+        styleLoader,
     ]
 }
