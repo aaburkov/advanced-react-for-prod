@@ -1,22 +1,22 @@
 type TObject = Record<string, any>
-type TClassNamesArguments = (string| undefined |  any[] | TObject)[]
+type TClassNamesArguments = (string| undefined | any[] | TObject)[]
 
 export default function classNames(...rest:TClassNamesArguments):string {
     const result: string[] = [];
 
-    rest.forEach(item => {
-        if(typeof item === 'string'){
-            result.push(item)
-        }else if(Array.isArray(item)){
-            item.forEach(arr_item => result.push(arr_item.toString()))
-        }else if(typeof item === 'object'){
+    rest.forEach((item) => {
+        if (typeof item === 'string') {
+            result.push(item);
+        } else if (Array.isArray(item)) {
+            item.forEach((arrItem) => result.push(arrItem.toString()));
+        } else if (typeof item === 'object') {
             for (const [key, value] of Object.entries(item)) {
-                if(Boolean(value)){
-                    result.push(key.toString())
+                if (value) {
+                    result.push(key.toString());
                 }
-              }
+            }
         }
-    })
+    });
 
-    return result.join(' ')
+    return result.join(' ');
 }

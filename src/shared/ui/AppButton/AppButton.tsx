@@ -1,5 +1,5 @@
-import { ButtonHTMLAttributes, FC, PropsWithChildren } from "react"
-import cn from "shared/lib/classNames";
+import { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react';
+import cn from 'shared/lib/classNames';
 import styles from './AppButtom.module.scss';
 
 export enum AppButtonTheme {
@@ -17,13 +17,16 @@ const AppButton: FC<PropsWithChildren<AppButtonProps>> = (props) => {
         children,
         ...otherProps
     } = props;
-  return (
-    <button
-        className={cn(styles.AppButton, styles[theme], className)}
-        {...otherProps}>
-        {children}
-    </button>
-  )
-}
 
-export default AppButton
+    return (
+        <button
+            type="button"
+            className={cn(styles.AppButton, styles[theme], className)}
+            {...otherProps}
+        >
+            {children}
+        </button>
+    );
+};
+
+export default AppButton;
