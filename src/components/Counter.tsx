@@ -8,9 +8,21 @@ export function Counter() {
 
     return (
         <div className={styles.container}>
-            <button type="button" className={styles.btn} onClick={() => setCount((prev) => prev - 1)}>{t('Increase')}</button>
+            <button
+                type="button"
+                className={styles.btn}
+                onClick={() => setCount((prev) => prev - 1)}
+            >
+                {t('Increase')}
+            </button>
             <h2 className={styles.value}>{count}</h2>
-            <button type="button" className={styles.btn} onClick={() => setCount((prev) => prev + 1)}>{t('Decrease')}</button>
+            <button
+                type="button"
+                className={styles.btn}
+                onClick={() => setCount((prev) => prev + 1)}
+            >
+                {t('Decrease')}
+            </button>
         </div>
     );
 }

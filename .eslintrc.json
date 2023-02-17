@@ -41,6 +41,7 @@
         "react/jsx-props-no-spreading": "warn",
         "no-shadow": "off",
         "no-underscore-dangle": "off",
-        "import/no-extraneous-dependencies": "off"
+        "import/no-extraneous-dependencies": "off",
+        "max-len": ["error", {"ignoreComments": true, "code": 100}]
     }
 }
