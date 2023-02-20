@@ -21,7 +21,7 @@ const LangSwitcher: FC<LangSwitcherProps> = (props) => {
             theme={AppButtonTheme.CLEAR}
         >
             <strong>
-                {i18n.language.toUpperCase()}
+                {i18n.language.substring(0, 2).toUpperCase()}
             </strong>
         </AppButton>
     );

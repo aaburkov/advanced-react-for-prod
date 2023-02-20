@@ -4,5 +4,7 @@
   "Increase": "Увеличить",
   "Decrease": "Уменьшить",
   "Toggle": "Переключить",
-  "Hello worlds": "Привет мир"
+  "Page not found": "Страница не найдена!",
+  "Something went wrong": "Что-то пошло не так =(",
+  "Reload page": "Перезагрузить страницу"
 }
