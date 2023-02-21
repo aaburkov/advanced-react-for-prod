@@ -14,6 +14,9 @@ export default {
     moduleDirectories: [
         'node_modules',
     ],
+    modulePath: [
+        '<rootDir>src',
+    ],
     moduleFileExtensions: [
         'js',
         'mjs',

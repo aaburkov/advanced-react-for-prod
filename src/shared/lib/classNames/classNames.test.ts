@@ -1,4 +1,4 @@
-import cn from '.';
+import cn from 'shared/lib/classNames';
 
 describe('classNames', () => {
     test('success', () => {
