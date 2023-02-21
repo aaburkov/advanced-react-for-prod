@@ -1,6 +1,6 @@
 import cn from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
-import { AppButton, AppButtonTheme } from 'shared/ui';
+import { AppButton } from 'shared/ui';
 import { FC } from 'react';
 import styles from './PageError.module.scss';
 

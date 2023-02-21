@@ -19,15 +19,23 @@ const Sidebar:FC<PropsWithChildren<SidebarProps>> = (props) => {
     };
 
     return (
-        <div className={cn(
-            styles.Sidebar,
-            {
-                [styles.collapsed]: collapsed,
-            },
-            className,
-        )}
+        <div
+            data-testid="sidebar"
+            className={cn(
+                styles.Sidebar,
+                {
+                    [styles.collapsed]: collapsed,
+                },
+                className,
+            )}
         >
-            <AppButton onClick={toggleCollapsed}>{t('Toggle')}</AppButton>
+            <AppButton
+                data-testid="sidebar-toggle"
+                onClick={toggleCollapsed}
+            >
+                {t('Toggle')}
+
+            </AppButton>
             <div className={cn(styles.switchers)}>
                 <ThemeSwitcher />
                 <LangSwitcher />
