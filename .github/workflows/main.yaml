@@ -26,9 +26,6 @@ jobs:
       - name: Build project
         run: npm run build:prod
 
-      - name: Build Storybook
-        run: npm run storybook:build
-
       - name: Lint Typescript
         run: npm run lint:ts
 
@@ -38,5 +35,8 @@ jobs:
       - name: Run Unit Tests
         run: npm run test:unit
 
-      - name: Run Unit Tests
-        run: npm run test:ui
+      - name: Build Storybook
+        run: npm run storybook:build
+
+      - name: Run UI Tests
+        run: npm run test:ui:ci
