@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import buildCssLoaders from './loaders/buildCssLoaders';
-import buildSvgLoader from './loaders/buildSvgLoader';
 
 export function buildLoaders(options: BuildOptions):webpack.RuleSetRule[] {
     const { isDev } = options;
@@ -36,9 +35,15 @@ export function buildLoaders(options: BuildOptions):webpack.RuleSetRule[] {
             },
         }],
     };
+
+    const svgLoader = {
+        test: /\.svg$/,
+        use: '@svgr/webpack',
+    };
+
     return [
         fileLoader,
-        buildSvgLoader(),
+        svgLoader,
         babelLoader,
         typescriptLoader,
         styleLoader,

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1677007210968" clover="3.2.0">
-  <project timestamp="1677007210968" name="All files">
+<coverage generated="1677187041406" clover="3.2.0">
+  <project timestamp="1677187041406" name="All files">
     <metrics statements="50" coveredstatements="41" conditionals="20" coveredconditionals="14" methods="17" coveredmethods="12" elements="87" coveredelements="67" complexity="0" loc="50" ncloc="50" packages="15" files="16" classes="16"/>
     <package name="config.jest">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -55,17 +55,17 @@
       <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
       <file name="index.ts" path="/Users/aaburkov/Documents/AABurkov/ulibi-course/src/shared/lib/classNames/index.ts">
         <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
-        <line num="5" count="30" type="stmt"/>
-        <line num="7" count="30" type="stmt"/>
-        <line num="8" count="67" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="44" type="stmt"/>
-        <line num="10" count="23" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="6" type="stmt"/>
-        <line num="14" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="21" count="30" type="stmt"/>
+        <line num="6" count="30" type="stmt"/>
+        <line num="8" count="30" type="stmt"/>
+        <line num="9" count="67" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="44" type="stmt"/>
+        <line num="11" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="22" count="30" type="stmt"/>
       </file>
     </package>
     <package name="src.shared.lib.tests.renderWithTranslations">
@@ -85,9 +85,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="AppButton.tsx" path="/Users/aaburkov/Documents/AABurkov/ulibi-course/src/shared/ui/AppButton/AppButton.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="19" count="11" type="stmt"/>
-        <line num="21" count="11" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="20" count="11" type="stmt"/>
+        <line num="22" count="11" type="stmt"/>
       </file>
     </package>
     <package name="src.shared.ui.AppLink">
@@ -117,9 +117,9 @@
         <line num="17" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="src.widgets.Sidebar.ui.Sidebar">
+    <package name="src.widgets.Sidebar.ui">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="Sidebar.tsx" path="/Users/aaburkov/Documents/AABurkov/ulibi-course/src/widgets/Sidebar/ui/Sidebar/Sidebar.tsx">
+      <file name="Sidebar.tsx" path="/Users/aaburkov/Documents/AABurkov/ulibi-course/src/widgets/Sidebar/ui/Sidebar.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
