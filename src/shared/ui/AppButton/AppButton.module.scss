@@ -1,12 +1,19 @@
 .AppButton {
     cursor: pointer;
     color: var(--secondary-color);
+    padding: 0 15px;
 }
 
 .clear {
-    padding: 0;
     margin: 0;
     border: none;
     outline: none;
     background: none;
+}
+
+.outline {
+    margin: 0;
+    border: 1px solid var(--primary-color);
+    background: none;
+    outline: none;
 }

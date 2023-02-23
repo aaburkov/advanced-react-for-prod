@@ -9,7 +9,7 @@ import styles from './Sidebar.module.scss';
 interface SidebarProps {
   className?: string
 }
-const Sidebar:FC<PropsWithChildren<SidebarProps>> = (props) => {
+const Sidebar:FC<SidebarProps> = (props) => {
     const { className } = props;
     const [collapsed, setCollapsed] = useState(false);
     const { t } = useTranslation();

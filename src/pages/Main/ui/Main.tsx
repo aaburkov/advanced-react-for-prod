@@ -1,8 +1,9 @@
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { Counter } from 'components/Counter';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function Main() {
+const Main:FC = () => {
     const { t } = useTranslation();
     return (
         <div>
@@ -11,4 +12,6 @@ export default function Main() {
             <Counter />
         </div>
     );
-}
+};
+
+export default Main;
