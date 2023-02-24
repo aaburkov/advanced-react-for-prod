@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import AppButton, { AppButtonTheme } from './AppButton';
+import AppButton, { AppButtonSize, AppButtonTheme } from './AppButton';
 
 export default {
     title: 'Shared/AppButton',
@@ -45,3 +45,30 @@ OutlineDark.args = {
     children: 'Button',
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BackgroundTheme = Template.bind({});
+BackgroundTheme.args = {
+    theme: AppButtonTheme.BACKGROUND,
+    children: 'Button',
+};
+
+export const InvertedBackgroundTheme = Template.bind({});
+InvertedBackgroundTheme.args = {
+    theme: AppButtonTheme.BACKGROUND_INVERTED,
+    children: 'Button',
+};
+
+export const Square = Template.bind({});
+Square.args = {
+    theme: AppButtonTheme.BACKGROUND_INVERTED,
+    square: true,
+    children: '>',
+};
+
+export const SquareWithSizes = Template.bind({});
+SquareWithSizes.args = {
+    theme: AppButtonTheme.BACKGROUND_INVERTED,
+    square: true,
+    size: AppButtonSize.L,
+    children: '<',
+};

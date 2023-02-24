@@ -2,6 +2,7 @@ import cn from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
 import { AppButton, AppButtonTheme } from 'shared/ui';
 import { FC } from 'react';
+import { AppButtonSize } from 'shared/ui/AppButton/AppButton';
 import styles from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
@@ -19,6 +20,8 @@ const LangSwitcher: FC<LangSwitcherProps> = (props) => {
             className={cn(styles.LangSwitcher, className)}
             onClick={toggle}
             theme={AppButtonTheme.CLEAR}
+            square
+            size={AppButtonSize.L}
         >
             <strong>
                 {i18n.language.substring(0, 2).toUpperCase()}

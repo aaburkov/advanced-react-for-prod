@@ -3,6 +3,7 @@ import cn from 'shared/lib/classNames';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import { AppButton, AppButtonTheme } from 'shared/ui';
+import { AppButtonSize } from 'shared/ui/AppButton/AppButton';
 
 interface ThemeSwitcherProps {
     className?: string;
@@ -18,8 +19,10 @@ function ThemeSwitcher(props: ThemeSwitcherProps) {
             theme={AppButtonTheme.CLEAR}
             className={cn(className)}
             onClick={toggleTheme}
+            square
+            size={AppButtonSize.L}
         >
-            { theme === Theme.DARK ? <LightIcon /> : <DarkIcon /> }
+            { theme === Theme.DARK ? <DarkIcon /> : <LightIcon /> }
         </AppButton>
     );
 }
