@@ -3,6 +3,13 @@
 @import './themes/dark';
 @import './themes/normal';
 
+@font-face {
+    font-family: RobotoMono;
+    src: url("../../shared/assets/fonts/RobotoMono.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .app {
     font: var(--font-m);
     background: var(--bg-color);

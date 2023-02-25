@@ -13,10 +13,15 @@ export function buildLoaders(options: BuildOptions):webpack.RuleSetRule[] {
     };
 
     const fileLoader = {
-        test: /\.(png|jpe?g|gif|woff|ttf)$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [{
             loader: 'file-loader',
         }],
+    };
+
+    const fontLoader = {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
     };
 
     const babelLoader = {
@@ -43,6 +48,7 @@ export function buildLoaders(options: BuildOptions):webpack.RuleSetRule[] {
 
     return [
         fileLoader,
+        fontLoader,
         svgLoader,
         babelLoader,
         typescriptLoader,
