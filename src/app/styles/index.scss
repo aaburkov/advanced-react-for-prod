@@ -10,10 +10,17 @@
     font-style: normal;
 }
 
-.app {
+body {
     font: var(--font-m);
-    background: var(--bg-color);
     color: var(--primary-color);
+}
+
+body.hidden {
+    overflow: hidden;
+}
+
+.app {
+    background: var(--bg-color);
     min-height: 100vh;
 }
 

@@ -9,12 +9,18 @@ interface UseThemeResult {
     theme: Theme
 }
 
+export const setBodyThemeClass = (themeClass: Theme) => {
+    document.body.classList.remove(...Object.values(Theme));
+    document.body.classList.add(themeClass);
+};
+
 export function useTheme(): UseThemeResult {
     const { theme, setTheme } = useContext(ThemeContext);
 
     const toggleTheme = () => {
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
         setTheme?.(newTheme);
+        setBodyThemeClass(newTheme);
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
 

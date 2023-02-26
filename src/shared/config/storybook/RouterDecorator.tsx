@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 export default (StoryComponent: Story) => (
     <BrowserRouter>
-        <StoryComponent />
+        <div className="app">
+            <StoryComponent />
+        </div>
     </BrowserRouter>
 );

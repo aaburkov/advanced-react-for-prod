@@ -13,9 +13,10 @@ export const parameters = {
             date: /Date$/,
         },
     },
+    theme: Theme.LIGHT,
 };
 
 addDecorator(StyleDecorator);
+addDecorator(ThemeDecorator);
 addDecorator(RouterDecorator);
 addDecorator(I18nDecorator);
-addDecorator(ThemeDecorator(Theme.LIGHT));

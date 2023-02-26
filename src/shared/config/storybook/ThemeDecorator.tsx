@@ -1,9 +1,16 @@
 /* eslint-disable react/display-name */
-import { Story } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
+import { DecoratorFn } from '@storybook/react';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 
-export default (theme: Theme) => (StoryComponent: Story) => (
-    <div className={`app ${theme}`}>
-        <StoryComponent />
-    </div>
-);
+const ThemeDecorator:DecoratorFn = (StoryComponent, context) => {
+    // eslint-disable-next-line react/destructuring-assignment
+    const storyTheme = context.parameters.theme || context.globals.theme;
+
+    return (
+        <ThemeProvider initialTheme={storyTheme}>
+            <StoryComponent />
+        </ThemeProvider>
+    );
+};
+
+export default ThemeDecorator;

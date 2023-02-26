@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ThemeDecorator from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import AppButton, { AppButtonSize, AppButtonTheme } from './AppButton';
 
@@ -26,12 +25,20 @@ Clear.args = {
     children: 'Button',
 };
 
+export const ClearInverted = Template.bind({});
+ClearInverted.args = {
+    theme: AppButtonTheme.CLEAR_INVERTED,
+    children: 'Button',
+};
+
 export const ClearDark = Template.bind({});
 ClearDark.args = {
     theme: AppButtonTheme.CLEAR,
     children: 'Button',
 };
-ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
+ClearDark.parameters = {
+    theme: Theme.DARK,
+};
 
 export const Outline = Template.bind({});
 Outline.args = {
@@ -44,7 +51,9 @@ OutlineDark.args = {
     theme: AppButtonTheme.OUTLINE,
     children: 'Button',
 };
-OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+OutlineDark.parameters = {
+    theme: Theme.DARK,
+};
 
 export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
