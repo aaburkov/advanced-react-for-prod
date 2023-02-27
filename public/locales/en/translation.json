@@ -9,5 +9,8 @@
   "Something went wrong": "Something went wrong =(",
   "Reload page": "Reload page",
   "Login": "Login",
-  "Add amount": "Add amount"
+  "Add amount": "Add amount",
+  "Enter": "Login",
+  "Enter username": "Enter username",
+  "Enter password": "Enter password"
 }

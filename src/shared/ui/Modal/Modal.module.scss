@@ -23,9 +23,8 @@
     border-bottom: 1px solid #ccc;
 }
 
-.content {
+.contentContainer {
     width: 90%;
-    max-width: 800px;
     padding: 20px;
     border-radius: 10px;
     background-color: var(--bg-color);
@@ -33,11 +32,14 @@
     transform: scale(.5)
 }
 
+// .content {
+// }
+
 .opened {
     pointer-events: auto;
     opacity: 1;
 
-    .content {
+    .contentContainer {
         transform: scale(1);
     }
 }

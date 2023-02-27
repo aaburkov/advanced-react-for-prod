@@ -43,7 +43,6 @@ const Counter:FC<CounterProps> = (props) => {
             >
                 {t('Increase')}
             </button>
-            <br />
             <button
                 data-testid="increment-by-amount-btn"
                 type="button"

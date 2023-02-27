@@ -8,5 +8,8 @@
   "Something went wrong": "Что-то пошло не так =(",
   "Reload page": "Перезагрузить страницу",
   "Login": "Войти",
-  "Add amount": "Добавить количество"
+  "Add amount": "Добавить количество",
+  "Enter": "Войти",
+  "Enter username": "Введите имя",
+  "Enter password": "Введите пароль"
 }

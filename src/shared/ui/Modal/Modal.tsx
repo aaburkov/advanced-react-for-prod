@@ -1,5 +1,5 @@
 import {
-    FC, MouseEvent, PropsWithChildren, useCallback, useEffect,
+    FC, MouseEvent, PropsWithChildren, useCallback, useEffect, useState,
 } from 'react';
 import cn from 'shared/lib/classNames';
 import styles from './Modal.module.scss';
@@ -10,7 +10,8 @@ interface ModalProps {
     title?: string;
     isOpen: boolean;
     hideOnClickOverlay?: boolean;
-    onClose: () => void
+    onClose: () => void;
+    lazy?: boolean
 }
 const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
     const {
@@ -20,7 +21,16 @@ const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
         isOpen,
         onClose,
         hideOnClickOverlay = true,
+        lazy,
     } = props;
+
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     const onEscDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
@@ -58,22 +68,29 @@ const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
     const onContentClick = (e: MouseEvent) => {
         e.stopPropagation();
     };
+
+    if (lazy && !isMounted) {
+        return null;
+    }
+
     return (
         <Portal>
             <div className={cn(styles.Modal, {
                 [styles.opened]: isOpen,
-            }, className)}
+            })}
             >
                 <div className={styles.overlay} onClick={clickOnOverlay}>
-                    {
-                        title && (
-                            <div className={styles.header}>
-                                <h3>{title}</h3>
-                            </div>
-                        )
-                    }
-                    <div className={styles.content} onClick={onContentClick}>
-                        {children}
+                    <div className={cn(styles.contentContainer, className)}>
+                        {
+                            title && (
+                                <div className={styles.header}>
+                                    <h3>{title}</h3>
+                                </div>
+                            )
+                        }
+                        <div className={styles.content} onClick={onContentClick}>
+                            {children}
+                        </div>
                     </div>
                 </div>
             </div>
