@@ -3,7 +3,12 @@
     color: var(--secondary-color);
     padding: 5px 15px;
     overflow: hidden;
+
+    &:disabled {
+        opacity: .4;
+    }
 }
+
 
 .clear,.clearInverted {
     margin: 0;
@@ -19,6 +24,7 @@
 .outline {
     margin: 0;
     border: 1px solid var(--primary-color);
+    border-radius: 5px;
     background: none;
     outline: none;
 }

@@ -11,5 +11,8 @@
   "Add amount": "Добавить количество",
   "Enter": "Войти",
   "Enter username": "Введите имя",
-  "Enter password": "Введите пароль"
+  "Enter password": "Введите пароль",
+  "Auth modal header": "Форма авторизации",
+  "Wrong username or password": "Неверный логин или пароль ",
+  "Logout": "Выйти"
 }

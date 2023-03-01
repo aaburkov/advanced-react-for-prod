@@ -19,6 +19,6 @@ export const parameters = {
 
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator);
-addDecorator(StoreDecorator);
+addDecorator(StoreDecorator());
 addDecorator(RouterDecorator);
 addDecorator(I18nDecorator);

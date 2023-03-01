@@ -12,5 +12,8 @@
   "Add amount": "Add amount",
   "Enter": "Login",
   "Enter username": "Enter username",
-  "Enter password": "Enter password"
+  "Enter password": "Enter password",
+  "Auth modal header": "Auth form",
+  "Wrong username or password": "Wrong username or password",
+  "Logout": "Logout"
 }

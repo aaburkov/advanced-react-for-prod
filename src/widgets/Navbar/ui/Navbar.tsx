@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { FC, useCallback, useState } from 'react';
 import Modal from 'shared/ui/Modal/Modal';
 import { LoginModal } from 'features/AuthByUsername';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/hooks';
+import { getUserAuthData, userActions } from 'entities/User';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -15,6 +17,8 @@ interface NavbarProps {
 const Navbar:FC<NavbarProps> = ({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
+    const authData = useAppSelector(getUserAuthData);
+    const dispatch = useAppDispatch();
 
     const onCloseAuthModal = useCallback(() => {
         setIsOpen(false);
@@ -24,23 +28,41 @@ const Navbar:FC<NavbarProps> = ({ className }: NavbarProps) => {
         setIsOpen(true);
     }, [setIsOpen]);
 
+    const onLogount = useCallback(() => {
+        dispatch(userActions.logout());
+    }, [dispatch]);
+
     return (
         <div className={cn(styles.Navbar, className)}>
-            <div className={styles.links}>
-                <AppButton
-                    theme={AppButtonTheme.CLEAR_INVERTED}
-                    onClick={onOpenAuthModal}
-                >
-                    {t('Login')}
+            {
+                authData ? (
+                    <div className={styles.links}>
+                        <AppButton
+                            theme={AppButtonTheme.CLEAR_INVERTED}
+                            onClick={onLogount}
+                        >
+                            {t('Logout')}
 
-                </AppButton>
+                        </AppButton>
 
-            </div>
-            <LoginModal isOpen={isOpen} onClose={onCloseAuthModal} />
-            {/* <Modal isOpen={isOpen} onClose={onToggleAuthModal}>
-             eslint-disable-next-line i18next/no-literal-string *
-                <h2>I`m MODAL window!!!</h2>
-            </Modal> */}
+                    </div>
+                ) : (
+                    <>
+                        <div className={styles.links}>
+                            <AppButton
+                                theme={AppButtonTheme.CLEAR_INVERTED}
+                                onClick={onOpenAuthModal}
+                            >
+                                {t('Login')}
+
+                            </AppButton>
+
+                        </div>
+                        <LoginModal isOpen={isOpen} onClose={onCloseAuthModal} />
+                    </>
+                )
+            }
+
         </div>
     );
 };

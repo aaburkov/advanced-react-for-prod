@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const jsonServer = require('json-server');
@@ -6,25 +7,23 @@ const path = require('path');
 
 const server = jsonServer.create();
 
-const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
+// const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
+
+const cors = require('cors');
+
+server.use(cors());
 
 server.use(async (req, res, next) => {
     await new Promise((res) => {
-        setTimeout(res, 800);
+        setTimeout(res, 1000);
     });
     next();
 });
 
-server.use((req, res, next) => {
-    if (!req.header.authorization) {
-        return res.status(403).json({ message: 'AUTH ERROR' });
-    }
-
-    next();
-});
-
-server.use(jsonServer.defaults());
-server.use(router);
+server.use(jsonServer.defaults({
+    bodyParser: true,
+}));
+// server.use(router);
 
 server.post('/login', (req, res) => {
     const { username, password } = req.body;
@@ -40,6 +39,14 @@ server.post('/login', (req, res) => {
     }
 
     return res.status(403).json({ message: 'AUTH ERROR' });
+});
+
+server.use((req, res, next) => {
+    if (!req.header.authorization) {
+        return res.status(403).json({ message: 'AUTH ERROR' });
+    }
+
+    next();
 });
 
 const PORT = 8888;

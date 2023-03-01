@@ -55,6 +55,16 @@ OutlineDark.parameters = {
     theme: Theme.DARK,
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+    theme: AppButtonTheme.OUTLINE,
+    children: 'Button',
+    disabled: true,
+};
+Disabled.parameters = {
+    theme: Theme.DARK,
+};
+
 export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
     theme: AppButtonTheme.BACKGROUND,

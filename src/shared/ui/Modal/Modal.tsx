@@ -4,10 +4,11 @@ import {
 import cn from 'shared/lib/classNames';
 import styles from './Modal.module.scss';
 import Portal from '../Portal/Portal';
+import Text from '../Text/Text';
 
 interface ModalProps {
     className?: string;
-    title?: string;
+    title?: string | null;
     isOpen: boolean;
     hideOnClickOverlay?: boolean;
     onClose: () => void;
@@ -84,7 +85,7 @@ const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
                         {
                             title && (
                                 <div className={styles.header}>
-                                    <h3>{title}</h3>
+                                    <Text title={title} />
                                 </div>
                             )
                         }

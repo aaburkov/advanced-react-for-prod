@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from 'app/providers/ThemeProvider';
-import { LoginForm } from './LoginForm';
+import StoreDecorator from 'shared/config/storybook/StoreDecorator';
+import LoginForm from './LoginForm';
 
 export default {
     title: 'Features/AuthByUserName/LoginForm',
@@ -16,6 +17,15 @@ const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args
 export const Default = Template.bind({});
 Default.args = {
 };
+
+Default.decorators = [
+    StoreDecorator({
+        login: {
+            username: '123',
+            password: '12345',
+        },
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {

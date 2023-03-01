@@ -4,7 +4,7 @@ import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
-import i18n from 'shared/config/i18n/i18n-jest';
+import i18n from 'shared/config/i18n/i18n-test';
 
 interface renderTestComponentOptions {
     route?: string
