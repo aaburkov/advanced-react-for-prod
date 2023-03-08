@@ -20,9 +20,10 @@ Default.args = {
 
 Default.decorators = [
     StoreDecorator({
-        login: {
+        loginForm: {
             username: '123',
             password: '12345',
+            isLoading: false,
         },
     }),
 ];

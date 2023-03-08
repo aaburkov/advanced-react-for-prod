@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, Suspense } from 'react';
 import cn from 'shared/lib/classNames';
 import Modal from 'shared/ui/Modal/Modal';
 import { useTranslation } from 'react-i18next';
+import { StripesLoader } from 'shared/ui/Loaders';
 import styles from './LoginModal.module.scss';
-import LoginForm from '../LoginForm/LoginForm';
+import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 
 interface LoginModalProps {
     className?: string
@@ -27,7 +28,9 @@ export const LoginModal:FC<LoginModalProps> = (props) => {
             lazy
             title={t('Auth modal header')}
         >
-            <LoginForm />
+            <Suspense fallback={<StripesLoader />}>
+                <LoginFormAsync />
+            </Suspense>
         </Modal>
     );
 };

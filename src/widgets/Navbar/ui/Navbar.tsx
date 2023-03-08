@@ -4,7 +4,6 @@ import {
 } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { FC, useCallback, useState } from 'react';
-import Modal from 'shared/ui/Modal/Modal';
 import { LoginModal } from 'features/AuthByUsername';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/hooks';
 import { getUserAuthData, userActions } from 'entities/User';
@@ -16,17 +15,17 @@ interface NavbarProps {
 
 const Navbar:FC<NavbarProps> = ({ className }: NavbarProps) => {
     const { t } = useTranslation();
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
     const authData = useAppSelector(getUserAuthData);
     const dispatch = useAppDispatch();
 
     const onCloseAuthModal = useCallback(() => {
-        setIsOpen(false);
-    }, [setIsOpen]);
+        setIsOpenLoginModal(false);
+    }, [setIsOpenLoginModal]);
 
     const onOpenAuthModal = useCallback(() => {
-        setIsOpen(true);
-    }, [setIsOpen]);
+        setIsOpenLoginModal(true);
+    }, [setIsOpenLoginModal]);
 
     const onLogount = useCallback(() => {
         dispatch(userActions.logout());
@@ -58,7 +57,10 @@ const Navbar:FC<NavbarProps> = ({ className }: NavbarProps) => {
                             </AppButton>
 
                         </div>
-                        <LoginModal isOpen={isOpen} onClose={onCloseAuthModal} />
+                        {
+                            isOpenLoginModal
+                            && <LoginModal isOpen={isOpenLoginModal} onClose={onCloseAuthModal} />
+                        }
                     </>
                 )
             }
