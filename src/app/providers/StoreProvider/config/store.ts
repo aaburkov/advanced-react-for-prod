@@ -8,7 +8,7 @@ import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(
     initialState?:StateSchema,
-    asyncReducers?:DeepPartial<ReducersMapObject<StateSchema>>,
+    asyncReducers?:ReducersMapObject<StateSchema>,
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,

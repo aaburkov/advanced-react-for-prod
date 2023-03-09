@@ -4,12 +4,12 @@ import { User, userActions } from 'entities/User';
 import i18n from 'shared/config/i18n/i18n';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 
-interface loginByuserNameProps {
+interface loginByUserNameProps {
     username: string
     password: string
 }
 
-export const loginByUserName = createAsyncThunk<User, loginByuserNameProps, {rejectValue: string}>(
+export const loginByUserName = createAsyncThunk<User, loginByUserNameProps, {rejectValue: string}>(
     'login/loginByUsername',
     async (authData, thunkApi) => {
         try {
