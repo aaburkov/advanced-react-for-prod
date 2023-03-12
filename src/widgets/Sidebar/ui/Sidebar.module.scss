@@ -14,30 +14,6 @@
     margin-left: 30px;
 }
 
-.item {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.icon {
-    margin-right: 10px;
-    width: var(--font-line-m);
-    flex-shrink: 0;
-
-    path {
-        fill: var(--inverted-primary-color);
-    }
-}
-
-.link {
-    transition: 0.2s opacity ease;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
 .switchers {
     position: absolute;
     bottom: 30px;
@@ -59,10 +35,5 @@
 
     .switchers {
         flex-direction: column;
-    }
-
-    .link {
-        opacity: 0;
-        width: 0;
     }
 }

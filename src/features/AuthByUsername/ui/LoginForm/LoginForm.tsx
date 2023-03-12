@@ -22,11 +22,14 @@ import styles from './LoginForm.module.scss';
 const initialReducers:ReducersList = {
     loginForm: loginReducer,
 };
+
 export interface LoginFormProps {
-    className?: string
+    className?: string,
+    onFinish: () => void
 }
+
 const LoginForm:FC<LoginFormProps> = (props) => {
-    const { className } = props;
+    const { className, onFinish } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
@@ -43,9 +46,13 @@ const LoginForm:FC<LoginFormProps> = (props) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onSubmit = useCallback(() => {
-        dispatch(loginByUserName({ username, password }));
-    }, [dispatch, password, username]);
+    const onSubmit = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const result = await dispatch(loginByUserName({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onFinish();
+        }
+    }, [dispatch, onFinish, password, username]);
 
     const isDisabledButton = useMemo(
         () => !username || !password || isLoading,
@@ -54,7 +61,7 @@ const LoginForm:FC<LoginFormProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div className={cn(styles.LoginForm, className)}>
+            <form className={cn(styles.LoginForm, className)} onSubmit={onSubmit}>
                 {
                     error && (
                         <Text
@@ -83,13 +90,12 @@ const LoginForm:FC<LoginFormProps> = (props) => {
                     disabled={isDisabledButton}
                     theme={AppButtonTheme.OUTLINE}
                     className={styles.loginBtn}
-                    onClick={onSubmit}
+                    type="submit"
                 >
                     {t('Login')}
 
                 </AppButton>
-            </div>
-
+            </form>
         </DynamicModuleLoader>
     );
 };

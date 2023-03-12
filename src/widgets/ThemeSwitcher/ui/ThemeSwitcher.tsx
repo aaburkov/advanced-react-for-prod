@@ -4,6 +4,7 @@ import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import { AppButton, AppButtonTheme } from 'shared/ui';
 import { AppButtonSize } from 'shared/ui/AppButton/AppButton';
+import { memo } from 'react';
 
 interface ThemeSwitcherProps {
     className?: string;
@@ -27,4 +28,4 @@ function ThemeSwitcher(props: ThemeSwitcherProps) {
     );
 }
 
-export default ThemeSwitcher;
+export default memo(ThemeSwitcher);

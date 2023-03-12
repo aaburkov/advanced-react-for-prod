@@ -1,4 +1,6 @@
-import { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react';
+import {
+    ButtonHTMLAttributes, FC, PropsWithChildren, memo,
+} from 'react';
 import cn from 'shared/lib/classNames';
 import styles from './AppButton.module.scss';
 
@@ -22,7 +24,7 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: AppButtonTheme,
     square?: boolean,
-    size?:AppButtonSize
+    size?:AppButtonSize,
 }
 const AppButton: FC<PropsWithChildren<AppButtonProps>> = (props) => {
     const {
@@ -53,4 +55,4 @@ const AppButton: FC<PropsWithChildren<AppButtonProps>> = (props) => {
     );
 };
 
-export default AppButton;
+export default memo(AppButton);

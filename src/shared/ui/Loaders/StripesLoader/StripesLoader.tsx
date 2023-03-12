@@ -1,5 +1,5 @@
 import cn from 'shared/lib/classNames';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import styles from './StripesLoader.module.scss';
 
 interface StripesLoaderProps {
@@ -16,4 +16,4 @@ const StripesLoader: FC<StripesLoaderProps> = (props) => {
     );
 };
 
-export default StripesLoader;
+export default memo(StripesLoader);

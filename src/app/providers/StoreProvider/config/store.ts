@@ -8,7 +8,7 @@ import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(
     initialState?:StateSchema,
-    asyncReducers?:ReducersMapObject<StateSchema>,
+    asyncReducers?:DeepPartial<ReducersMapObject<StateSchema>>,
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
@@ -30,6 +30,5 @@ export function createReduxStore(
     return store;
 }
 
-// export type RootState = ReturnType<createReduxStore>['getState'];
 export type RootState = ReturnType<ReturnType<typeof createReduxStore>['getState']>;
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

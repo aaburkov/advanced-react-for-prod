@@ -29,7 +29,7 @@ export const LoginModal:FC<LoginModalProps> = (props) => {
             title={t('Auth modal header')}
         >
             <Suspense fallback={<StripesLoader />}>
-                <LoginFormAsync />
+                <LoginFormAsync onFinish={onClose} />
             </Suspense>
         </Modal>
     );

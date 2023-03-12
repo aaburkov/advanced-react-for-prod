@@ -15,5 +15,6 @@
   "Enter password": "Enter password",
   "Auth modal header": "Auth form",
   "Wrong username or password": "Wrong username or password",
-  "Logout": "Logout"
+  "Logout": "Logout",
+  "Profile page title": "Profile Page"
 }

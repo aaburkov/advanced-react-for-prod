@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, memo } from 'react';
 import cn from 'shared/lib/classNames';
 import styles from './Text.module.scss';
 
@@ -31,4 +31,4 @@ const Text: FC<PropsWithChildren<TextProps>> = (props) => {
     );
 };
 
-export default Text;
+export default memo(Text);
