@@ -7,5 +7,5 @@ export {
 };
 export { createReduxStore } from './config/store';
 export {
-    StateSchema, ReduxStoreWithManager, ReducersList, ReducersListEntry,
+    StateSchema, ReduxStoreWithManager, ReducersList, ReducersListEntry, ThunkConfig,
 } from './config/StateSchema';

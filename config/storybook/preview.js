@@ -17,8 +17,8 @@ export const parameters = {
     theme: Theme.LIGHT,
 };
 
+// addDecorator(RouterDecorator);
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator);
 addDecorator(StoreDecorator());
-addDecorator(RouterDecorator);
 addDecorator(I18nDecorator);

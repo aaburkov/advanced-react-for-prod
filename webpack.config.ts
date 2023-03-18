@@ -5,6 +5,8 @@ import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 
 export default (env: BuildEnv): webpack.Configuration => {
     const mode = env.mode || 'development';
+    const PORT = env.port || 3000;
+    const BASE_URL = env.baseUrl || 'http://localhost:8888';
 
     const paths: BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -14,12 +16,11 @@ export default (env: BuildEnv): webpack.Configuration => {
     };
     const isDev = mode === 'development';
 
-    const PORT = env.port || 3000;
-
     return buildWebpackConfig({
         mode,
         paths,
         isDev,
         port: PORT,
+        baseUrl: BASE_URL,
     });
 };

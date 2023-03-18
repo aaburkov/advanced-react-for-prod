@@ -7,7 +7,7 @@ const path = require('path');
 
 const server = jsonServer.create();
 
-// const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
+const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
 const cors = require('cors');
 
@@ -23,7 +23,6 @@ server.use(async (req, res, next) => {
 server.use(jsonServer.defaults({
     bodyParser: true,
 }));
-// server.use(router);
 
 server.post('/login', (req, res) => {
     const { username, password } = req.body;
@@ -42,12 +41,14 @@ server.post('/login', (req, res) => {
 });
 
 server.use((req, res, next) => {
-    if (!req.header.authorization) {
+    if (!req.headers.authorization) {
         return res.status(403).json({ message: 'AUTH ERROR' });
     }
 
     next();
 });
+
+server.use(router);
 
 const PORT = 8888;
 server.listen(PORT, () => {

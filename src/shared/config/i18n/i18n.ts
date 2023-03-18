@@ -11,7 +11,7 @@ i18n
     .init({
         fallbackLng: 'ru',
         debug: __IS_DEV__,
-
+        returnNull: false,
         interpolation: {
             escapeValue: false,
         },

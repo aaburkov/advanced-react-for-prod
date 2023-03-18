@@ -16,5 +16,6 @@
   "Auth modal header": "Auth form",
   "Wrong username or password": "Wrong username or password",
   "Logout": "Logout",
-  "Profile page title": "Profile Page"
+  "Profile page title": "Profile Page",
+  "Cant load profile data": "Can't load profile data!"
 }

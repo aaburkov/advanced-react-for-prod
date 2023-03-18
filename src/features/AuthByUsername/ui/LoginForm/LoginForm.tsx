@@ -7,9 +7,7 @@ import {
     AppButton, AppButtonTheme, CodeInput, Text, TextTheme,
 } from 'shared/ui';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/hooks';
-import { useStore } from 'react-redux';
-import { ReducersList, ReduxStoreWithManager } from 'app/providers/StoreProvider';
-import useDynamicModuleLoader from 'shared/hooks/useDynamicModuleLoader';
+import { ReducersList } from 'app/providers/StoreProvider';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword';

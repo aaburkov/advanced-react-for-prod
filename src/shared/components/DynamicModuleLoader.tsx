@@ -1,8 +1,8 @@
 import {
     ReduxStoreWithManager,
     ReducersList,
-    ReducersListEntry,
 } from 'app/providers/StoreProvider';
+import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { useAppDispatch } from 'app/providers/StoreProvider/hooks';
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { useStore } from 'react-redux';
@@ -22,16 +22,16 @@ const DynamicModuleLoader:FC<PropsWithChildren<DynamicModuleLoaderProps>> = (pro
 
     // eslint-disable-next-line consistent-return
     useEffect(() => {
-        (Object.entries(reducers) as ReducersListEntry[])
-            .forEach(([name, reducer]:ReducersListEntry) => {
-                store.reducerManager.add(name, reducer);
+        Object.entries(reducers)
+            .forEach(([name, reducer]) => {
+                store.reducerManager.add(name as StateSchemaKey, reducer);
                 dispatch({ type: `@INIT ${name} reducer` });
             });
         if (removeAfterUnmount) {
             return () => {
-                (Object.entries(reducers) as ReducersListEntry[])
-                    .forEach(([name]:ReducersListEntry) => {
-                        store.reducerManager.remove(name);
+                Object.entries(reducers)
+                    .forEach(([name]) => {
+                        store.reducerManager.remove(name as StateSchemaKey);
                         dispatch({ type: `@DESTROY ${name} reducer` });
                     });
             };
