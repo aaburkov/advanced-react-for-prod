@@ -18,6 +18,20 @@
     &:focus {
         outline: none;
     }
+
+    &:read-only {
+        opacity: .3;
+        cursor: not-allowed;
+    }
+
+    &[type="number"]::-webkit-outer-spin-button,
+    &[type="number"]::-webkit-inner-spin-button {
+        appearance: none;
+    }
+
+    &[type="number"] {
+        appearance: textfield;
+    }
 }
 
 .caretWrapper {

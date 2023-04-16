@@ -79,7 +79,7 @@ const LoginForm:FC<LoginFormProps> = (props) => {
                 />
                 <CodeInput
                     placeholder={t('Enter password') as string}
-                    type="text"
+                    type="password"
                     className={styles.input}
                     value={password}
                     onChange={onChangePassword}

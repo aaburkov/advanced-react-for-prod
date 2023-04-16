@@ -16,5 +16,10 @@
   "Wrong username or password": "Неверный логин или пароль ",
   "Logout": "Выйти",
   "Profile page title": "Профиль",
-  "Cant load profile data": "Не удалось загрузить данные пользователя!"
+  "Cant load profile data": "Не удалось загрузить данные пользователя!",
+  "Save": "Сохранить",
+  "Cancel": "Отмена",
+  "User avatar": "Аватар пользователя",
+  "Select currency": "Выберите валюту",
+  "Select country": "Выберите страну"
 }

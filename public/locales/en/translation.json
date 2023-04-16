@@ -17,5 +17,10 @@
   "Wrong username or password": "Wrong username or password",
   "Logout": "Logout",
   "Profile page title": "Profile Page",
-  "Cant load profile data": "Can't load profile data!"
+  "Cant load profile data": "Can't load profile data!",
+  "Save": "Save",
+  "Cancel": "Cancel",
+  "User avatar": "User avatar",
+  "Select currency": "Select currency",
+  "Select country": "Select country"
 }

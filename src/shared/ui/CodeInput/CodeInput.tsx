@@ -1,6 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import {
-    FC, InputHTMLAttributes, memo, useEffect, useRef, useState,
+    FC, InputHTMLAttributes, memo, useEffect, useMemo, useRef, useState,
 } from 'react';
 import cn from 'shared/lib/classNames';
 import styles from './CodeInput.module.scss';
@@ -9,7 +9,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 interface CodeInputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value:string) => void
     autofocus?: boolean
 }
@@ -30,7 +30,10 @@ const CodeInput: FC<CodeInputProps> = (props) => {
         onChange?.(e.target.value);
         // setCaretPosition(e.target.value.length);
     };
-
+    const isCaretVisible = useMemo(
+        () => isFocused && !otherProps.readOnly,
+        [isFocused, otherProps.readOnly],
+    );
     const onBlur = () => {
         setIsFocused(false);
     };
@@ -72,7 +75,7 @@ const CodeInput: FC<CodeInputProps> = (props) => {
                     {...otherProps}
                 />
                 {
-                    isFocused
+                    isCaretVisible
                         && (
                             <span
                                 style={{ left: caretPosition * 9.6 }}

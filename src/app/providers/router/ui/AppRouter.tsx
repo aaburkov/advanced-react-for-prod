@@ -1,15 +1,26 @@
-import { Suspense } from 'react';
+import { useAppSelector } from 'app/providers/StoreProvider';
+import { getUserAuthData } from 'entities/User';
+import { truncate } from 'fs';
+import { Suspense, memo, useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { StripesLoader } from 'shared/ui/Loaders';
 import { PageLoader } from 'widgets/PageLoader';
 
 function AppRouter() {
+    const isAuth = useAppSelector(getUserAuthData);
+
+    const routes = useMemo(() => Object.values(routeConfig).filter((route) => {
+        if (!isAuth && route.protected) {
+            return false;
+        }
+        return true;
+    }), [isAuth]);
     return (
         <Suspense fallback={<PageLoader loader={<StripesLoader />} />}>
             <Routes>
                 {
-                    routeConfig.map(({ path, element }) => (
+                    routes.map(({ path, element }) => (
                         <Route
                             key={path}
                             path={path}
@@ -28,4 +39,4 @@ function AppRouter() {
     );
 }
 
-export default AppRouter;
+export default memo(AppRouter);

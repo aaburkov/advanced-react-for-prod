@@ -44,7 +44,12 @@ const Sidebar:FC<SidebarProps> = (props) => {
             </AppButton>
             <div className={cn(styles.items)}>
                 {
-                    SidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} />)
+                    SidebarItemsList.map((item) => (
+                        <SidebarItem
+                            key={item.path}
+                            item={item}
+                        />
+                    ))
                 }
             </div>
             <div className={cn(styles.switchers)}>

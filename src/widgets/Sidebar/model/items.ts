@@ -6,7 +6,8 @@ import ProfileIcon from 'shared/assets/icons/profile.svg';
 export interface ISidebarItem {
     path: string,
     text: string,
-    Icon: React.FC<React.SVGProps<SVGSVGElement>>
+    Icon: React.FC<React.SVGProps<SVGSVGElement>>,
+    protected?: boolean;
 }
 
 export const SidebarItemsList: ISidebarItem[] = [
@@ -24,5 +25,6 @@ export const SidebarItemsList: ISidebarItem[] = [
         path: RoutePath.profile,
         text: 'Profile page title',
         Icon: ProfileIcon,
+        protected: true,
     },
 ];

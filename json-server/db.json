@@ -1,32 +1,72 @@
 {
-    "posts": [
-        {"id": 1, "title": "json-server", "author": "gamazu"},
-        {"id": 2, "title": "json-server", "author": "gamazu"},
-        {"id": 3, "title": "json-server", "author": "gamazu"},
-        {"id": 4, "title": "json-server", "author": "gamazu"},
-        {"id": 5, "title": "json-server", "author": "gamazu"}
-    ],
-    "comments": [
-        {"id": 1, "body": "some comment", "postId": 1},
-        {"id": 2, "body": "some comment", "postId": 1},
-        {"id": 3, "body": "some comment", "postId": 2},
-        {"id": 4, "body": "some comment", "postId": 3},
-        {"id": 5, "body": "some comment", "postId": 3}
-    ],
-    "profile": {
-        "name": "Alex",
-        "surname": "Burkov",
-        "age": 28,
-        "country": "Turkey",
-        "city": "Kas",
-        "username": "admin",
-        "currency": "RUB",
-        "avatar": "https://t4.ftcdn.net/jpg/03/21/43/07/360_F_321430761_qQi0CU9tzI5w1k1vJgdA02LMtXtsXvJE.jpg"
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "gamazu"
     },
-    "users": [
-        {
-            "username": "admin",
-            "password": "123"
-        }
-    ]
+    {
+      "id": 2,
+      "title": "json-server",
+      "author": "gamazu"
+    },
+    {
+      "id": 3,
+      "title": "json-server",
+      "author": "gamazu"
+    },
+    {
+      "id": 4,
+      "title": "json-server",
+      "author": "gamazu"
+    },
+    {
+      "id": 5,
+      "title": "json-server",
+      "author": "gamazu"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 3,
+      "body": "some comment",
+      "postId": 2
+    },
+    {
+      "id": 4,
+      "body": "some comment",
+      "postId": 3
+    },
+    {
+      "id": 5,
+      "body": "some comment",
+      "postId": 3
+    }
+  ],
+  "profile": {
+    "name": "Alexzz",
+    "surname": "Burkov",
+    "age": 28,
+    "country": "Armenia",
+    "city": "Kas",
+    "username": "admin",
+    "currency": "USD",
+    "avatar": "https://t4.ftcdn.net/jpg/03/21/43/07/360_F_321430761_qQi0CU9tzI5w1k1vJgdA02LMtXtsXvJE.jpg"
+  },
+  "users": [
+    {
+      "username": "admin",
+      "password": "123"
+    }
+  ]
 }
