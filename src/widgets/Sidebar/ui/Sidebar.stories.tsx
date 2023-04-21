@@ -23,3 +23,12 @@ Dark.args = {};
 Dark.parameters = {
     theme: Theme.DARK,
 };
+
+export const IsAuth = Template.bind({});
+IsAuth.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {},
+        },
+    }),
+];
