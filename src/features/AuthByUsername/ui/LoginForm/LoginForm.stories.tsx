@@ -10,6 +10,15 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        StoreDecorator({
+            loginForm: {
+                username: '123',
+                password: '12345',
+                isLoading: false,
+            },
+        }),
+    ],
 } as ComponentMeta<typeof LoginForm>;
 
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
@@ -17,16 +26,6 @@ const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args
 export const Default = Template.bind({});
 Default.args = {
 };
-
-Default.decorators = [
-    StoreDecorator({
-        loginForm: {
-            username: '123',
-            password: '12345',
-            isLoading: false,
-        },
-    }),
-];
 
 export const Dark = Template.bind({});
 Dark.args = {

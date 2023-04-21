@@ -5,12 +5,15 @@ export interface BuildPaths {
     html: string,
     src: string
 }
+
+export type ProjectEnv = 'storybook' | 'frontend' | 'jest'
 export interface BuildOptions {
     mode:BuildMode,
     paths: BuildPaths,
     isDev: boolean,
     baseUrl: string
-    port: number
+    port: number,
+    env?: ProjectEnv
 }
 export interface BuildEnv {
     mode: BuildMode,

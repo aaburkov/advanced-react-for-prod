@@ -9,6 +9,10 @@ export const fetchProfileData = createAsyncThunk<IProfile, void, ThunkConfig<str
         const { extra, rejectWithValue } = thunkApi;
         try {
             const res = await extra.$api.get<IProfile>('/profile');
+
+            if (!res.data) {
+                throw new Error();
+            }
             return res.data;
         } catch (error) {
             return rejectWithValue(i18n.t('Cant load profile data'));

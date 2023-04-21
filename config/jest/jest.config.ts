@@ -99,6 +99,7 @@ export default {
     globals: {
         __IS_DEV__: true,
         __API__: true,
+        __PROJECT__: 'jest',
     },
 
     // The maximum amount of workers used to run your tests.

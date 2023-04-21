@@ -1,12 +1,18 @@
 import { $api } from 'shared/api/api';
 import {
-    ReducersMapObject, configureStore, AnyAction, Reducer, CombinedState,
+    ReducersMapObject, configureStore, AnyAction, Reducer, CombinedState, Dispatch, Action,
 } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { NavigateFunction } from 'react-router-dom';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
+
+const storybookMiddleware = () => (next:Dispatch) => (action:Action) => {
+    if (__PROJECT__ !== 'storybook') {
+        next(action);
+    }
+};
 
 export function createReduxStore(
     initialState: StateSchema,
@@ -20,7 +26,6 @@ export function createReduxStore(
     };
 
     const reducerManager = createReducerManager(rootReducers);
-
     const store = configureStore({
         devTools: __IS_DEV__,
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
@@ -32,7 +37,7 @@ export function createReduxStore(
                     navigate,
                 },
             },
-        }),
+        }).prepend(storybookMiddleware),
     });
 
     // @ts-ignore

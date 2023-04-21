@@ -11,5 +11,9 @@
   "Your city": "Ваш город",
   "Your username": "Ваш логин",
   "Avatar link": "Ссылка на аватар",
-  "Your currency": "Ваша валюта"
+  "Your currency": "Ваша валюта",
+  "Incorrect user data": "Неверные данные пользователя",
+  "Incorrect user age": "Некорректный возраст пользователя",
+  "Incorrect user country": "Указана некорректная страна",
+  "Server error": "Ошибка сервера"
 }
