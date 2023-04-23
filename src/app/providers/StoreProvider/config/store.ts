@@ -1,10 +1,9 @@
 import { $api } from 'shared/api/api';
 import {
-    ReducersMapObject, configureStore, AnyAction, Reducer, CombinedState, Dispatch, Action,
+    ReducersMapObject, configureStore, Reducer, CombinedState, Dispatch, Action,
 } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { NavigateFunction } from 'react-router-dom';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -17,7 +16,6 @@ const storybookMiddleware = () => (next:Dispatch) => (action:Action) => {
 export function createReduxStore(
     initialState: StateSchema,
     asyncReducers: DeepPartial<ReducersMapObject<StateSchema>>,
-    navigate: NavigateFunction,
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers as ReducersMapObject<StateSchema>,
@@ -34,10 +32,9 @@ export function createReduxStore(
             thunk: {
                 extraArgument: {
                     $api,
-                    navigate,
                 },
             },
-        }).prepend(storybookMiddleware),
+        }).concat(storybookMiddleware),
     });
 
     // @ts-ignore

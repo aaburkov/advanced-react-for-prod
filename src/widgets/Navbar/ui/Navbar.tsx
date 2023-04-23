@@ -46,23 +46,21 @@ const Navbar:FC<NavbarProps> = ({ className }: NavbarProps) => {
 
                     </div>
                 ) : (
-                    <>
-                        <div className={styles.links}>
-                            <AppButton
-                                theme={AppButtonTheme.CLEAR_INVERTED}
-                                onClick={onOpenAuthModal}
-                            >
-                                {t('Login')}
+                    <div className={styles.links}>
+                        <AppButton
+                            theme={AppButtonTheme.CLEAR_INVERTED}
+                            onClick={onOpenAuthModal}
+                        >
+                            {t('Login')}
 
-                            </AppButton>
+                        </AppButton>
 
-                        </div>
-                        {
-                            isOpenLoginModal
-                            && <LoginModal isOpen={isOpenLoginModal} onClose={onCloseAuthModal} />
-                        }
-                    </>
+                    </div>
                 )
+            }
+            {
+                isOpenLoginModal
+                && <LoginModal isOpen={isOpenLoginModal} onClose={onCloseAuthModal} />
             }
 
         </div>

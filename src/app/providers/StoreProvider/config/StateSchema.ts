@@ -1,4 +1,3 @@
-import { NavigateFunction } from 'react-router-dom';
 import {
     AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
@@ -37,7 +36,6 @@ export type ReducersList = {
 export type ReducersListEntry = [StateSchemaKey, Reducer]
 
 export interface ThunkExtraArg {
-    navigate: NavigateFunction,
     $api: AxiosInstance
 }
 

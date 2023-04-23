@@ -9,6 +9,8 @@ import {
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/hooks';
 import { ReducersList } from 'app/providers/StoreProvider';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
+import { Navigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading';
@@ -21,6 +23,14 @@ const initialReducers:ReducersList = {
     loginForm: loginReducer,
 };
 
+const test = async () => {
+    const res = await new Promise((r) => {
+        setTimeout(() => {
+            r(100);
+        }, 1000);
+    });
+    return res;
+};
 export interface LoginFormProps {
     className?: string,
     onFinish: () => void
@@ -46,7 +56,9 @@ const LoginForm:FC<LoginFormProps> = (props) => {
 
     const onSubmit = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
         const result = await dispatch(loginByUserName({ username, password }));
+
         if (result.meta.requestStatus === 'fulfilled') {
             onFinish();
         }
@@ -91,7 +103,6 @@ const LoginForm:FC<LoginFormProps> = (props) => {
                     type="submit"
                 >
                     {t('Login')}
-
                 </AppButton>
             </form>
         </DynamicModuleLoader>

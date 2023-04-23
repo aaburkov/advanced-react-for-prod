@@ -7,7 +7,7 @@ import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
     const {
-        mode, paths, isDev, env = 'frontend',
+        mode, paths, isDev,
     } = options;
 
     return {
@@ -15,6 +15,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         entry: paths.entry,
         output: {
             filename: '[name]-[contenthash].js',
+            publicPath: '/',
             path: paths.output,
             clean: true,
         },

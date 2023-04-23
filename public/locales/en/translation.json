@@ -1,6 +1,7 @@
 {
   "Main page title": "Main",
   "About page title": "About",
+  "Articles page title": "Articles",
   "Increase": "Increase",
   "Decrease": "Decrease",
   "Toggle": "Toggle",
@@ -22,5 +23,7 @@
   "Cancel": "Cancel",
   "User avatar": "User avatar",
   "Select currency": "Select currency",
-  "Select country": "Select country"
+  "Select country": "Select country",
+  "Article": "Article",
+  "Articles page": "Articles page"
 }

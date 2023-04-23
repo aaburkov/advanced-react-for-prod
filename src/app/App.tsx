@@ -5,12 +5,14 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
-import { userActions } from 'entities/User';
-import { useAppDispatch } from './providers/StoreProvider/hooks';
+import { getUserInited, userActions } from 'entities/User';
+import { useAppDispatch, useAppSelector } from './providers/StoreProvider/hooks';
 
 export default function App() {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
+    const userInited = useAppSelector(getUserInited);
+
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
@@ -22,7 +24,9 @@ export default function App() {
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
-                    <AppRouter />
+                    {
+                        userInited && <AppRouter />
+                    }
                 </div>
             </Suspense>
         </div>

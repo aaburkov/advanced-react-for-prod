@@ -1,38 +1,45 @@
-import { useAppSelector } from 'app/providers/StoreProvider';
-import { getUserAuthData } from 'entities/User';
-import { truncate } from 'fs';
-import { Suspense, memo, useMemo } from 'react';
+import {
+    Suspense, memo, useCallback,
+} from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { StripesLoader } from 'shared/ui/Loaders';
 import { PageLoader } from 'widgets/PageLoader';
+import RequireAuth from './RequireAuth';
 
 function AppRouter() {
-    const isAuth = useAppSelector(getUserAuthData);
+    const renderWithWrapper = useCallback((route:AppRoutesProps) => {
+        const element = (
+            <div className="page-wrapper">
+                {route.element}
+            </div>
+        );
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={
+                    (
+                        <div className="page-wrapper">
+                            {
+                                route.protected ? (
+                                    <RequireAuth>
+                                        {element}
+                                    </RequireAuth>
+                                ) : element
+                            }
+                        </div>
+                    )
+                }
+            />
+        );
+    }, []);
 
-    const routes = useMemo(() => Object.values(routeConfig).filter((route) => {
-        if (!isAuth && route.protected) {
-            return false;
-        }
-        return true;
-    }), [isAuth]);
     return (
         <Suspense fallback={<PageLoader loader={<StripesLoader />} />}>
             <Routes>
                 {
-                    routes.map(({ path, element }) => (
-                        <Route
-                            key={path}
-                            path={path}
-                            element={
-                                (
-                                    <div className="page-wrapper">
-                                        {element}
-                                    </div>
-                                )
-                            }
-                        />
-                    ))
+                    Object.values(routeConfig).map(renderWithWrapper)
                 }
             </Routes>
         </Suspense>

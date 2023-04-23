@@ -3,7 +3,7 @@ import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { User, UserSchema } from '../types/userSchema';
 
 const initialState:UserSchema = {
-    // value: 0,
+    _inited: false,
 };
 
 export const userSlice = createSlice({
@@ -19,6 +19,7 @@ export const userSlice = createSlice({
             if (userFromLocalStorage) {
                 state.authData = JSON.parse(userFromLocalStorage);
             }
+            state._inited = true;
         },
         logout: (state) => {
             localStorage.removeItem(USER_LOCALSTORAGE_KEY);
@@ -27,5 +28,4 @@ export const userSlice = createSlice({
     },
 });
 
-// Action creators are generated for each case reducer function
 export const { actions: userActions, reducer: userReducer } = userSlice;
