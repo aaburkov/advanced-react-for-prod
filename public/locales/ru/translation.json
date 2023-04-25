@@ -22,5 +22,6 @@
   "Cancel": "Отмена",
   "User avatar": "Аватар пользователя",
   "Select currency": "Выберите валюту",
-  "Select country": "Выберите страну"
+  "Select country": "Выберите страну",
+  "Cant load article data": "Неудалось загрузить статью"
 }

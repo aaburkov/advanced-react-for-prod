@@ -3,9 +3,14 @@
     color: var(--secondary-color);
     padding: 5px 15px;
     overflow: hidden;
+    transition: transform .3s ease;
 
     &:disabled {
         opacity: .4;
+    }
+
+    &:hover {
+        transform: scale(1.09);
     }
 }
 

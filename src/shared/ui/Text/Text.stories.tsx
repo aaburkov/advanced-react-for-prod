@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import Text, { TextTheme } from './Text';
+import Text, { TextSize, TextTheme } from './Text';
 
 export default {
     title: 'Shared/Text',
@@ -16,6 +16,13 @@ export const Primary = Template.bind({});
 Primary.args = {
     title: 'Title Title',
     text: 'Text text text text. Text text text text',
+};
+
+export const PrimaryL = Template.bind({});
+PrimaryL.args = {
+    title: 'Title Title',
+    text: 'Text text text text. Text text text text',
+    size: TextSize.L,
 };
 
 export const OnlyTitle = Template.bind({});

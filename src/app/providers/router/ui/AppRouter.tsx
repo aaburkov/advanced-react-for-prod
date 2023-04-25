@@ -19,17 +19,11 @@ function AppRouter() {
                 key={route.path}
                 path={route.path}
                 element={
-                    (
-                        <div className="page-wrapper">
-                            {
-                                route.protected ? (
-                                    <RequireAuth>
-                                        {element}
-                                    </RequireAuth>
-                                ) : element
-                            }
-                        </div>
-                    )
+                    route.protected ? (
+                        <RequireAuth>
+                            {element}
+                        </RequireAuth>
+                    ) : element
                 }
             />
         );

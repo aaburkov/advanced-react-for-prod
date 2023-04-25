@@ -1,4 +1,3 @@
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
 import { Countries } from 'entities/Country';
 import { validateProfileData } from './validateProfileData';
 import { ValidateProfileError } from '../../types/profile';

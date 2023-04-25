@@ -7,6 +7,7 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
+import { ArticleDetailsSchema } from 'entities/Article';
 
 export interface StateSchema {
     counter: CounterSchema,
@@ -14,7 +15,8 @@ export interface StateSchema {
 
     // Async reducers
     loginForm?: LoginSchema,
-    profile?: ProfileSchema
+    profile?: ProfileSchema,
+    articlesDetails?: ArticleDetailsSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;

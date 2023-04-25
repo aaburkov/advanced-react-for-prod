@@ -14,12 +14,19 @@ export enum TextAlign {
     RIGHT = 'right',
 }
 
+export enum TextSize {
+    M = 'size_m',
+    L = 'size_l',
+    XL = 'size_xl',
+}
+
 interface TextProps {
     className?: string;
     title?: string;
     text?: string;
     theme?: TextTheme,
-    align?: TextAlign
+    align?: TextAlign,
+    size?: TextSize,
 }
 
 const Text: FC<PropsWithChildren<TextProps>> = (props) => {
@@ -29,10 +36,11 @@ const Text: FC<PropsWithChildren<TextProps>> = (props) => {
         text,
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
+        size = TextSize.M,
     } = props;
 
     return (
-        <div className={cn(styles.Text, styles[theme], styles[align], className)}>
+        <div className={cn(styles.Text, styles[theme], styles[align], styles[size], className)}>
             {title && <p className={styles.title}>{title}</p> }
             {text && <p className={styles.text}>{text}</p> }
         </div>
