@@ -8,6 +8,7 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetails';
 
 export interface StateSchema {
     counter: CounterSchema,
@@ -17,6 +18,7 @@ export interface StateSchema {
     loginForm?: LoginSchema,
     profile?: ProfileSchema,
     articlesDetails?: ArticleDetailsSchema,
+    articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
