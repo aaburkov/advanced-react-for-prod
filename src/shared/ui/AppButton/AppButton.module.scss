@@ -1,9 +1,10 @@
 .AppButton {
     cursor: pointer;
     color: var(--secondary-color);
-    padding: 5px 15px;
     overflow: hidden;
     transition: transform .3s ease;
+    display: flex;
+    align-items: center;
 
     &:disabled {
         opacity: .4;
@@ -83,16 +84,20 @@
 
 .sizeS {
     font-size: var(--font-size-s);
+    padding: 5px 10px;
 }
 
 .sizeM {
     font-size: var(--font-size-m);
+    padding: 5px 15px;
 }
 
 .sizeL {
     font-size: var(--font-size-l);
+    padding: 7px 18px;
 }
 
 .sizeXL {
     font-size: var(--font-size-xl);
+    padding: 10px 20px;
 }

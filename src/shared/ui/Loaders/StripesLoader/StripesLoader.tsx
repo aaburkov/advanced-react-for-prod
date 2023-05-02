@@ -1,14 +1,28 @@
 import cn from 'shared/lib/classNames';
-import { FC, memo } from 'react';
+import {
+    CSSProperties, FC, memo, useMemo,
+} from 'react';
 import styles from './StripesLoader.module.scss';
 
 interface StripesLoaderProps {
     className?: string;
+    size?: number
 }
 const StripesLoader: FC<StripesLoaderProps> = (props) => {
-    const { className } = props;
+    const {
+        className,
+        size = 80,
+    } = props;
+
+    const customStyle = useMemo<CSSProperties>(() => ({
+        width: size,
+        height: size,
+    }), []);
     return (
-        <div className={cn(styles.StripesLoader, className)}>
+        <div
+            style={customStyle}
+            className={cn(styles.StripesLoader, className)}
+        >
             <div />
             <div />
             <div />

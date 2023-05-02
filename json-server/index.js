@@ -12,6 +12,14 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 const cors = require('cors');
 
 server.use(cors());
+server.use(jsonServer.bodyParser);
+
+server.use((req, res, next) => {
+    if (req.method === 'POST') {
+        req.body.createdAt = Date.now();
+    }
+    next();
+});
 
 server.use(async (req, res, next) => {
     await new Promise((res) => {

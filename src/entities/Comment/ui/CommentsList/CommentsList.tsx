@@ -16,6 +16,15 @@ const CommentsList:FC<CommentsListProps> = (props) => {
     const { className, comments, isLoading } = props;
     const { t } = useTranslation('comments');
 
+    if (isLoading) {
+        return (
+            <div className={cn(styles.CommentsList, className)}>
+                <CommentsItem isLoading className={styles.commentItem} />
+                <CommentsItem isLoading className={styles.commentItem} />
+                <CommentsItem isLoading className={styles.commentItem} />
+            </div>
+        );
+    }
     return (
         <div className={cn(styles.CommentsList, className)}>
             {

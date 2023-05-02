@@ -3,6 +3,7 @@ import { validateProfileData } from './validateProfileData';
 import { ValidateProfileError } from '../../types/profile';
 
 const data = {
+    id: '1',
     name: 'aaa',
     surname: 'bbb',
     username: 'ccc',
@@ -19,6 +20,7 @@ describe('validateProfileData test', () => {
 
     test('wrong user data', async () => {
         const result = validateProfileData({
+            id: '1',
             name: 'xxxx',
             age: 222,
             country: Countries.Armenia,
@@ -31,6 +33,7 @@ describe('validateProfileData test', () => {
 
     test('wrong user age', async () => {
         const result = validateProfileData({
+            id: '1',
             name: 'xxxx',
             surname: 'bbb',
             country: Countries.Armenia,
@@ -43,6 +46,7 @@ describe('validateProfileData test', () => {
 
     test('wrong user country', async () => {
         const result = validateProfileData({
+            id: '1',
             name: 'xxxx',
             surname: 'bbb',
             age: 222,
@@ -55,6 +59,7 @@ describe('validateProfileData test', () => {
 
     test('everything is wrong', async () => {
         const result = validateProfileData({
+            id: '1',
             name: 'xxxx',
         });
 

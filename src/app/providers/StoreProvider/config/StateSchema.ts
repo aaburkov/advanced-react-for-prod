@@ -9,6 +9,7 @@ import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetails';
+import { CommentFormSchema } from 'features/CommentForm/model/types/commentFormSchema';
 
 export interface StateSchema {
     counter: CounterSchema,
@@ -18,7 +19,8 @@ export interface StateSchema {
     loginForm?: LoginSchema,
     profile?: ProfileSchema,
     articlesDetails?: ArticleDetailsSchema,
-    articleDetailsComments?: ArticleDetailsCommentsSchema
+    articleDetailsComments?: ArticleDetailsCommentsSchema,
+    commentForm?: CommentFormSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

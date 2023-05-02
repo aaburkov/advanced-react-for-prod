@@ -7,6 +7,10 @@ import { Text, TextTheme } from 'shared/ui';
 import { CommentsList } from 'entities/Comment';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 import { ReducersList, useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import { CommentForm } from 'features/CommentForm';
+import {
+    sendCommentForArticle,
+} from 'features/CommentForm/model/services/sendCommentForArticle/sendCommentForArticle';
 import styles from './ArticlesDetailsPage.module.scss';
 import {
     articleDetailCommentsReducer,
@@ -34,6 +38,9 @@ const ArticleDetailsPage:FC<ArticleDetailsPageProps> = (props) => {
         dispatch(fetchCommentsByArticleId(id));
     }, []);
 
+    const onSendCommentHandler = () => {
+        dispatch(sendCommentForArticle(id));
+    };
     if (!id) {
         return (
             <div className={cn(styles.ArticleDetailsPage, className)}>
@@ -47,6 +54,7 @@ const ArticleDetailsPage:FC<ArticleDetailsPageProps> = (props) => {
                 <h1>{t('Article')}</h1>
                 <ArticleDetails id={id} />
                 <Text title={t('Comments header')} className={styles.commentsHeader} />
+                <CommentForm onSendComment={onSendCommentHandler} />
                 <CommentsList comments={comments} isLoading={isLoading} />
             </div>
         </DynamicModuleLoader>

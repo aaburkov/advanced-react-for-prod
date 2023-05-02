@@ -20,6 +20,8 @@ export const fetchCommentsByArticleId = createAsyncThunk<
                 params: {
                     articleId,
                     _expand: 'user',
+                    _sort: 'createdAt',
+                    _order: 'desc',
                 },
             });
 

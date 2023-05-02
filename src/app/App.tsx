@@ -13,7 +13,6 @@ export default function App() {
     const dispatch = useAppDispatch();
     const userInited = useAppSelector(getUserInited);
 
-
     useEffect(() => {
         dispatch(userActions.initAuthData());
     }, []);

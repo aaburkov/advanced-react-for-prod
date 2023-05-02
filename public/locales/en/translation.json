@@ -25,5 +25,8 @@
   "Select country": "Select country",
   "Article": "Article",
   "Articles page": "Articles page",
-  "Cant load article data": "Cant load article data"
+  "Cant load article data": "Cant load article data",
+  "Send": "Send",
+  "Comment input placeholder": "Your Comment",
+  "Wrong data": "Wrong data"
 }

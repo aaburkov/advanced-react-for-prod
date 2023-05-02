@@ -2,6 +2,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
 
 describe('fetchProfileData test', () => {
+    const userId = '1';
     test('success', async () => {
         const response = {
             name: 'aaa',
@@ -13,7 +14,7 @@ describe('fetchProfileData test', () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data: response }));
 
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk(userId);
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toEqual('fulfilled');
@@ -24,7 +25,7 @@ describe('fetchProfileData test', () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk(userId);
 
         expect(result.meta.requestStatus).toEqual('rejected');
     });

@@ -23,5 +23,8 @@
   "User avatar": "Аватар пользователя",
   "Select currency": "Выберите валюту",
   "Select country": "Выберите страну",
-  "Cant load article data": "Неудалось загрузить статью"
+  "Cant load article data": "Неудалось загрузить статью",
+  "Send": "Отправить",
+  "Comment input placeholder": "Ваш коментарий",
+  "Wrong data": "Неверные данные"
 }

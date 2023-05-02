@@ -5,6 +5,7 @@ import { updateProfileData } from './updateProfileData';
 import { IProfile, ValidateProfileError } from '../../types/profile';
 
 const data:IProfile = {
+    id: '1',
     name: 'aaa',
     surname: 'bbb',
     username: 'ccc',

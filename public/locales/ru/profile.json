@@ -1,5 +1,5 @@
 {
-  "Profile": "Профиль пользователя",
+  "Profile": "Мой профиль",
   "Edit": "Редактировать",
   "Your name": "Ваше имя",
   "Your surname": "Ваша фамилия",
@@ -15,5 +15,6 @@
   "Incorrect user data": "Неверные данные пользователя",
   "Incorrect user age": "Некорректный возраст пользователя",
   "Incorrect user country": "Указана некорректная страна",
-  "Server error": "Ошибка сервера"
+  "Server error": "Ошибка сервера",
+  "User page title": "Профиль пользователя"
 }

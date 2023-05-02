@@ -1,5 +1,5 @@
 {
-  "Profile": "User Profile",
+  "Profile": "My Profile",
   "Edit": "Edit",
   "Your name": "Your name",
   "Your surname": "Your surname",
@@ -12,4 +12,5 @@
   "Your username": "Your username",
   "Avatar link": "Avatar link",
   "Your currency": "Your currency",
+  "User page title": "User Profile"
 }

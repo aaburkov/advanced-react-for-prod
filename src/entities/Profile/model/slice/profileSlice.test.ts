@@ -16,6 +16,7 @@ describe('profile', () => {
     });
     test('Cancel edit', () => {
         const data: IProfile = {
+            id: '1',
             name: 'aaa',
             surname: 'bbb',
             username: 'ccc',
@@ -49,6 +50,7 @@ describe('profile', () => {
 
     test('UpdateProfile', () => {
         const data: IProfile = {
+            id: '1',
             name: 'aaa',
             surname: 'bbb',
             username: 'ccc',
@@ -65,6 +67,7 @@ describe('profile', () => {
 
         expect(
             profileReducer(state as ProfileSchema, profileActions.updateProfile({
+                id: '1',
                 name: 'qqq',
                 surname: 'lkkk',
                 age: 33,
@@ -95,6 +98,7 @@ describe('profile', () => {
 
     test('UpdateProfile Fullfiled', () => {
         const data: IProfile = {
+            id: '1',
             name: 'aaa',
             surname: 'bbb',
             username: 'ccc',

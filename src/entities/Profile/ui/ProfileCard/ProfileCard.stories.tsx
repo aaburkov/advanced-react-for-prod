@@ -17,6 +17,7 @@ export default {
     ],
     args: {
         data: {
+            id: '1',
             username: 'admin',
             name: 'name',
             surname: 'surname',

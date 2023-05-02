@@ -1,12 +1,14 @@
 import { FC } from 'react';
 import cn from 'shared/lib/classNames';
 import { Avatar, Skeleton, Text } from 'shared/ui';
+import { Link } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import styles from './CommentsItem.module.scss';
 import { IComment } from '../../model/types/comment';
 
 interface CommentsItemProps {
    className?: string
-   comment: IComment
+   comment?: IComment
    isLoading?: boolean
 }
 
@@ -28,16 +30,20 @@ const CommentsItem:FC<CommentsItemProps> = (props) => {
                 </div>
                 <Skeleton width="90%" height={20} />
                 <Skeleton width="60%" height={20} />
-                <Skeleton width="30%" height={20} />
             </div>
         );
     }
+
+    if (!comment) {
+        return null;
+    }
+
     return (
         <div className={cn(styles.CommentsItem, className)}>
-            <div className={styles.user}>
+            <Link to={`${RoutePath.user}/${comment.user.id}`} className={styles.user}>
                 <Avatar size={30} src={comment.user.avatar} className={styles.avatar} />
                 <Text title={comment.user.username} />
-            </div>
+            </Link>
             <Text text={comment.text} />
         </div>
     );

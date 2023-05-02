@@ -19,6 +19,7 @@ import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { getUserAuthData } from 'entities/User';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers:ReducersList = {
@@ -29,6 +30,7 @@ const Profile:FC = () => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
 
+    const userAuthData = useAppSelector(getUserAuthData);
     const form = useAppSelector(getProfileForm);
     const error = useAppSelector(getProfileError);
     const isLoading = useAppSelector(getProfileIsLoading);
@@ -42,8 +44,9 @@ const Profile:FC = () => {
         [ValidateProfileError.SERVER_ERROR]: t('Server error'),
     }), []);
     useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
+        if (!userAuthData?.id) return;
+        dispatch(fetchProfileData(userAuthData.id));
+    }, [dispatch, userAuthData]);
 
     const changeNameHandler = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({
