@@ -17,7 +17,7 @@ import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
-import { Text, TextTheme } from 'shared/ui';
+import { Text, TextTheme, PageContainer } from 'shared/ui';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { getUserAuthData } from 'entities/User';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
@@ -98,7 +98,7 @@ const Profile:FC = () => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div>
+            <PageContainer>
                 <h1>{t('Profile page title')}</h1>
                 <ProfilePageHeader />
                 {
@@ -124,7 +124,7 @@ const Profile:FC = () => {
                     onChangeCurrency={changeCurrencyHandler}
                     onChangeCountry={changeCountryHandler}
                 />
-            </div>
+            </PageContainer>
         </DynamicModuleLoader>
     );
 };

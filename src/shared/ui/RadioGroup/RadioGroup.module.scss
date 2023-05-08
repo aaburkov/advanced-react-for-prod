@@ -1,0 +1,72 @@
+.RadioGroup {
+    color: var(--primary-color);
+    overflow: hidden;
+    transition: transform .3s ease;
+    display: flex;
+    align-items: center;
+
+}
+
+.btn {
+    cursor: pointer;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    padding: 5px 10px;
+    margin: 0;
+    border: 1px solid var(--primary-color);
+    background: none;
+    outline: none;
+    border-right-width: 0;
+
+
+    &:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    &:last-child {
+        border-right-width: 1px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    &:disabled{
+        opacity: .4;
+    }
+
+    &:hover {
+        transform: scale(1.09);
+    }
+
+    &.selected {
+        background-color: var(--primary-color);
+        color: var(--bg-color);
+
+        & svg {
+            & path {
+                fill: var(--bg-color);
+            }
+        }
+    }
+}
+
+.sizeS {
+    font: var(--font-s);
+    padding: 5px 10px;
+}
+
+.sizeM {
+    font: var(--font-m);
+    padding: 5px 15px;
+}
+
+.sizeL {
+    font: var(--font-l);
+    padding: 7px 18px;
+}
+
+.sizeXL {
+    font: var(--font-xl);
+    padding: 10px 20px;
+}

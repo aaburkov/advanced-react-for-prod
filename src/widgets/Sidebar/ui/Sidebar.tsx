@@ -22,7 +22,7 @@ const Sidebar:FC<SidebarProps> = (props) => {
     };
 
     return (
-        <div
+        <menu
             data-testid="sidebar"
             className={cn(
                 styles.Sidebar,
@@ -56,7 +56,7 @@ const Sidebar:FC<SidebarProps> = (props) => {
                 <ThemeSwitcher />
                 <LangSwitcher />
             </div>
-        </div>
+        </menu>
     );
 };
 

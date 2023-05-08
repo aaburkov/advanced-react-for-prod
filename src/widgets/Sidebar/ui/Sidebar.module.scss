@@ -27,8 +27,10 @@
 .collapsedBtn {
     z-index: 100;
     position: absolute;
-    right: -32px;
+    right: -30px;
     bottom: 40px;
+    display: flex;
+    justify-content: center;
 }
 
 .collapsed {

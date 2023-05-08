@@ -32,7 +32,7 @@ const Navbar:FC<NavbarProps> = ({ className }: NavbarProps) => {
     }, [dispatch]);
 
     return (
-        <div className={cn(styles.Navbar, className)}>
+        <nav className={cn(styles.Navbar, className)}>
             {
                 authData ? (
                     <div className={styles.links}>
@@ -63,7 +63,7 @@ const Navbar:FC<NavbarProps> = ({ className }: NavbarProps) => {
                 && <LoginModal isOpen={isOpenLoginModal} onClose={onCloseAuthModal} />
             }
 
-        </div>
+        </nav>
     );
 };
 

@@ -5,9 +5,9 @@ import ProfileIcon from 'shared/assets/icons/profile.svg';
 import ArticleIcon from 'shared/assets/icons/article.svg';
 
 export interface ISidebarItem {
-    path: string,
-    text: string,
-    Icon: React.FC<React.SVGProps<SVGSVGElement>>,
+    path: string;
+    text: string;
+    Icon: React.FC<React.SVGProps<SVGSVGElement>>;
     protected?: boolean;
 }
 

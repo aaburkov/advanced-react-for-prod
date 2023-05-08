@@ -10,6 +10,7 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetails';
 import { CommentFormSchema } from 'features/CommentForm/model/types/commentFormSchema';
+import { ArticlesPageSchema } from 'pages/Articles/model/types/ArticlesPageSchema';
 
 export interface StateSchema {
     counter: CounterSchema,
@@ -18,6 +19,7 @@ export interface StateSchema {
     // Async reducers
     loginForm?: LoginSchema,
     profile?: ProfileSchema,
+    articlesPage?: ArticlesPageSchema,
     articlesDetails?: ArticleDetailsSchema,
     articleDetailsComments?: ArticleDetailsCommentsSchema,
     commentForm?: CommentFormSchema

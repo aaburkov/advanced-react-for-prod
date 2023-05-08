@@ -3,7 +3,7 @@ import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import cn from 'shared/lib/classNames';
-import { Text, TextTheme } from 'shared/ui';
+import { PageContainer, Text, TextTheme } from 'shared/ui';
 import { CommentsList } from 'entities/Comment';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 import { ReducersList, useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
@@ -50,13 +50,13 @@ const ArticleDetailsPage:FC<ArticleDetailsPageProps> = (props) => {
     }
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={cn(styles.ArticleDetailsPage, className)}>
+            <PageContainer className={cn(styles.ArticleDetailsPage, className)}>
                 <h1>{t('Article')}</h1>
                 <ArticleDetails id={id} />
                 <Text title={t('Comments header')} className={styles.commentsHeader} />
                 <CommentForm onSendComment={onSendCommentHandler} />
                 <CommentsList comments={comments} isLoading={isLoading} />
-            </div>
+            </PageContainer>
         </DynamicModuleLoader>
     );
 };

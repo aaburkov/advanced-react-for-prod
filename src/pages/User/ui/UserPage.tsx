@@ -13,6 +13,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 import { useParams } from 'react-router-dom';
+import { PageContainer } from 'shared/ui';
 
 const initialReducers:ReducersList = {
     profile: profileReducer,
@@ -36,7 +37,7 @@ const UserPage:FC = () => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div>
+            <PageContainer>
                 <h1>{t('User page title')}</h1>
                 <ProfileCard
                     data={form}
@@ -44,7 +45,7 @@ const UserPage:FC = () => {
                     isLoading={isLoading}
                     isReadonly
                 />
-            </div>
+            </PageContainer>
         </DynamicModuleLoader>
     );
 };

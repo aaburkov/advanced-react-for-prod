@@ -56,12 +56,6 @@
     border: none;
 }
 
-.square {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-}
-
 .square.sizeS {
     width: var(--font-line-s);
     height: var(--font-line-s);
@@ -100,4 +94,10 @@
 .sizeXL {
     font-size: var(--font-size-xl);
     padding: 10px 20px;
+}
+
+.square {
+    width: 40px;
+    height: 40px;
+    padding: 0;
 }

@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useAppSelector } from 'app/providers/StoreProvider';
 import { getUserAuthData } from 'entities/User';
 import { Navigate, useLocation } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
-function RequireAuth({ children }: { children: JSX.Element }) {
+const RequireAuth = ({ children }: { children: any }) => {
     const auth = useAppSelector(getUserAuthData);
     const location = useLocation();
 
@@ -12,6 +13,6 @@ function RequireAuth({ children }: { children: JSX.Element }) {
     }
 
     return children;
-}
+};
 
 export default RequireAuth;
