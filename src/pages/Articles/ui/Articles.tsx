@@ -15,6 +15,7 @@ import {
     articlesPageReducer, getArticlesList,
 } from '../model/slice/ArticlesPageSlice';
 import {
+    getArticlesPageInited,
     getArticlesPageIsLoading,
     getArticlesPageViewType,
 } from '../model/selectors/articlesPage';
@@ -32,9 +33,12 @@ const Articles:FC = () => {
     const articles = useAppSelector(getArticlesList.selectAll);
     const viewType = useAppSelector(getArticlesPageViewType);
     const isLoading = useAppSelector(getArticlesPageIsLoading);
+    const inited = useAppSelector(getArticlesPageInited);
 
     useEffect(() => {
-        dispatch(fetchArticles());
+        if (!inited) {
+            dispatch(fetchArticles());
+        }
     }, [dispatch]);
 
     const onChangeViewType = useCallback((value: ArticleViewType) => {
@@ -46,7 +50,7 @@ const Articles:FC = () => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={initialReducers}>
+        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
             <PageContainer onScrollEnd={onScrollEnd}>
                 <h1>{t('Articles page')}</h1>
                 <RadioGroup

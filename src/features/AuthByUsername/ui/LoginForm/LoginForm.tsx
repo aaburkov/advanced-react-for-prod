@@ -1,20 +1,19 @@
+import { ReducersList } from 'app/providers/StoreProvider';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/hooks';
 import {
-    FC, memo, useCallback, useEffect, useMemo,
+    FC, memo, useCallback,
+    useMemo,
 } from 'react';
-import cn from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
+import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
+import cn from 'shared/lib/classNames';
 import {
     AppButton, AppButtonTheme, CodeInput, Text, TextTheme,
 } from 'shared/ui';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/hooks';
-import { ReducersList } from 'app/providers/StoreProvider';
-import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
-import { Navigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { getLoginUsername } from '../../model/selectors/getLoginUsername';
-import { getLoginPassword } from '../../model/selectors/getLoginPassword';
-import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
@@ -23,14 +22,6 @@ const initialReducers:ReducersList = {
     loginForm: loginReducer,
 };
 
-const test = async () => {
-    const res = await new Promise((r) => {
-        setTimeout(() => {
-            r(100);
-        }, 1000);
-    });
-    return res;
-};
 export interface LoginFormProps {
     className?: string,
     onFinish: () => void
