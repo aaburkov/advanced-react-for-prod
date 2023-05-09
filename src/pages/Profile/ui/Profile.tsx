@@ -17,10 +17,11 @@ import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
-import { Text, TextTheme, PageContainer } from 'shared/ui';
+import { Text, TextTheme } from 'shared/ui';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { getUserAuthData } from 'entities/User';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
+import { PageContainer } from 'widgets/PageContainer';
 
 const initialReducers:ReducersList = {
     profile: profileReducer,

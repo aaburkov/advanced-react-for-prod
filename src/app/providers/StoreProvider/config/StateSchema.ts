@@ -11,10 +11,12 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetails';
 import { CommentFormSchema } from 'features/CommentForm/model/types/commentFormSchema';
 import { ArticlesPageSchema } from 'pages/Articles/model/types/ArticlesPageSchema';
+import { ScrollSchema } from 'widgets/PageContainer/model/types/scroll';
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
+    pageScroll: ScrollSchema,
 
     // Async reducers
     loginForm?: LoginSchema,
@@ -22,7 +24,7 @@ export interface StateSchema {
     articlesPage?: ArticlesPageSchema,
     articlesDetails?: ArticleDetailsSchema,
     articleDetailsComments?: ArticleDetailsCommentsSchema,
-    commentForm?: CommentFormSchema
+    commentForm?: CommentFormSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;

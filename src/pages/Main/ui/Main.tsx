@@ -2,7 +2,7 @@ import { BugButton } from 'app/providers/ErrorBoundary';
 import { Counter } from 'entities/Counter';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageContainer } from 'shared/ui';
+import { PageContainer } from 'widgets/PageContainer';
 
 const Main:FC = () => {
     const { t } = useTranslation();

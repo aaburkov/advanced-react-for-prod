@@ -4,6 +4,7 @@ import {
 } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+import { PageScrollReducer } from 'widgets/PageContainer';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -21,6 +22,7 @@ export function createReduxStore(
         ...asyncReducers as ReducersMapObject<StateSchema>,
         counter: counterReducer,
         user: userReducer,
+        pageScroll: PageScrollReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);

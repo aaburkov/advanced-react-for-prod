@@ -3,7 +3,7 @@ import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import cn from 'shared/lib/classNames';
-import { PageContainer, Text, TextTheme } from 'shared/ui';
+import { Text, TextTheme } from 'shared/ui';
 import { CommentsList } from 'entities/Comment';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 import { ReducersList, useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
@@ -11,6 +11,7 @@ import { CommentForm } from 'features/CommentForm';
 import {
     sendCommentForArticle,
 } from 'features/CommentForm/model/services/sendCommentForArticle/sendCommentForArticle';
+import { PageContainer } from 'widgets/PageContainer';
 import styles from './ArticlesDetailsPage.module.scss';
 import {
     articleDetailCommentsReducer,

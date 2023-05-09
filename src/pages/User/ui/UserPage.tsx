@@ -13,7 +13,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 import { useParams } from 'react-router-dom';
-import { PageContainer } from 'shared/ui';
+import { PageContainer } from 'widgets/PageContainer';
 
 const initialReducers:ReducersList = {
     profile: profileReducer,

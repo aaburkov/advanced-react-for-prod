@@ -30,7 +30,7 @@ const ArticleList:FC<ArticleListProps> = (props) => {
     } = props;
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem article={article} viewType={viewType} />
+        <ArticleListItem key={article.id} article={article} viewType={viewType} />
     );
 
     return (

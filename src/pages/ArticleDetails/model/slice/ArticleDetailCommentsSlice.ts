@@ -23,15 +23,7 @@ const articleDetailCommentsSlice = createSlice({
         ids: [],
         entities: {},
     }),
-    reducers: {
-        // // Can pass adapter functions directly as case reducers.  Because we're passing this
-        // // as a value, `createSlice` will auto-generate the `bookAdded` action type / creator
-        // bookAdded: commentsAdapter.addOne,
-        // booksReceived(state, action) {
-        // // Or, call them as "mutating" helpers in a case reducer
-        //     commentsAdapter.setAll(state, action.payload.books);
-        // },
-    },
+    reducers: {},
     extraReducers: (builder) => builder
         .addCase(fetchCommentsByArticleId.pending, (state) => {
             state.isLoading = true;

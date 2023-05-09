@@ -6,10 +6,11 @@ import { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 import {
-    PageContainer, Icon, RadioGroup, RadioGroupSize,
+    Icon, RadioGroup, RadioGroupSize,
 } from 'shared/ui';
 import GridIcon from 'shared/assets/icons/grid.svg';
 import ListIcon from 'shared/assets/icons/list.svg';
+import { PageContainer } from 'widgets/PageContainer';
 import {
     articlesPageActions,
     articlesPageReducer, getArticlesList,
@@ -51,7 +52,7 @@ const Articles:FC = () => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
-            <PageContainer onScrollEnd={onScrollEnd}>
+            <PageContainer onScrollEnd={onScrollEnd} saveScroll>
                 <h1>{t('Articles page')}</h1>
                 <RadioGroup
                     onChange={onChangeViewType}

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageContainer } from 'shared/ui';
+import { PageContainer } from 'widgets/PageContainer';
 
 const About:FC = () => {
     const { t } = useTranslation();
