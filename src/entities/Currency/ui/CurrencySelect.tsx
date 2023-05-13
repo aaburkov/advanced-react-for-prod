@@ -24,12 +24,12 @@ const CurrencySelect:FC<CurrencySelectProps> = (props) => {
     } = props;
     const { t } = useTranslation();
 
-    const changeHandler = useCallback((value: string) => {
+    const changeHandler = useCallback((value: Currency) => {
         onChange?.(value as Currency);
     }, []);
 
     return (
-        <AppSelect
+        <AppSelect<Currency>
             value={value}
             onChange={changeHandler}
             options={options}

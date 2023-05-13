@@ -5,5 +5,18 @@
   "Article not found": "Статья не найдена",
   "Comments header": "Коментарии",
   "Read full": "Читать полностью",
-  "To articles": "К статьям"
+  "To articles": "К статьям",
+  "Sort by": "Сортировать по",
+  "Search": "Поиск",
+  "ASC": "По возрастанию",
+  "DESC": "По убыванию",
+  "Title": "Названию",
+  "Views": "Просмотрам",
+  "Created at": "Дате создания",
+  "Economic": "Экономика",
+  "Entertaiment": "Развлечения",
+  "IT": "IT",
+  "News": "Новости",
+  "Science": "Наука",
+  "Articles not found": "Статьи не найдены =("
 }

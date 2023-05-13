@@ -6,20 +6,17 @@ import styles from './Card.module.scss';
 
 export enum CardTheme {
     DEFAULT = 'default',
-    CLEAR = 'clear',
-    CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
-    OUTLINE_RED = 'outline_red',
-    BACKGROUND = 'background',
-    BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
+    theme?: CardTheme
 }
 const Card: FC<PropsWithChildren<CardProps>> = (props) => {
     const {
         className,
+        theme = CardTheme.DEFAULT,
         children,
         ...otherProps
     } = props;
@@ -28,6 +25,7 @@ const Card: FC<PropsWithChildren<CardProps>> = (props) => {
         <div
             className={cn(
                 styles.Card,
+                styles[theme],
                 className,
             )}
             {...otherProps}

@@ -39,7 +39,6 @@ const PageContainer: FC<PropsWithChildren<PageContainerProps>> = (props) => {
     });
 
     const onScrollHandler = useThrottle((event: UIEvent<HTMLDivElement>) => {
-        console.log('SCROLL!');
         if (!saveScroll) return;
 
         dispatch(PageScrollActions.setScrollPosition({
@@ -59,7 +58,10 @@ const PageContainer: FC<PropsWithChildren<PageContainerProps>> = (props) => {
             )}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd && (
+                <div className={styles.infiniteTrigger} ref={triggerRef} />
+            )}
+
         </main>
     );
 };

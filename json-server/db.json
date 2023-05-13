@@ -133,10 +133,10 @@
       "title": "Javascript news",
       "subtitle": "What's new in JS in 2023 year",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
+      "views": 124,
       "createdAt": "26.02.2022",
       "tags": [
-        "IT"
+        "IT", "NEWS"
       ],
       "blocks": [
         {
@@ -205,10 +205,10 @@
       "title": "Python news",
       "subtitle": "What's new in Python in 2023 year",
       "img": "https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 737,
+      "createdAt": "22.01.2022",
       "tags": [
-        "IT"
+        "IT", "NEWS"
       ],
       "blocks": [
         {
@@ -277,10 +277,10 @@
       "title": "Golang news",
       "subtitle": "What's new in Go in 2023 year",
       "img": "https://cdn.dribbble.com/userupload/2624050/file/original-59266f4dea1c2aa43f2064cc0f3b165a.png?compress=1&resize=800x600&vertical=top",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 777,
+      "createdAt": "20.03.2022",
       "tags": [
-        "IT"
+        "IT", "NEWS"
       ],
       "blocks": [
         {
@@ -346,13 +346,13 @@
     {
       "id": "4",
       "userId": "1",
-      "title": "Javascript news",
+      "title": "Javascript news ECONOMICS",
       "subtitle": "What's new in JS in 2023 year",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 423,
+      "createdAt": "12.01.2022",
       "tags": [
-        "IT"
+        "IT", "ECONOMICS"
       ],
       "blocks": [
         {
@@ -378,10 +378,10 @@
       "title": "Python news",
       "subtitle": "What's new in Python in 2023 year",
       "img": "https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1010,
+      "createdAt": "18.05.2022",
       "tags": [
-        "IT"
+        "IT", "ECONOMICS"
       ],
       "blocks": [
         {
@@ -407,10 +407,10 @@
       "title": "Golang news",
       "subtitle": "What's new in Go in 2023 year",
       "img": "https://cdn.dribbble.com/userupload/2624050/file/original-59266f4dea1c2aa43f2064cc0f3b165a.png?compress=1&resize=800x600&vertical=top",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1488,
+      "createdAt": "01.04.2022",
       "tags": [
-        "IT"
+        "IT", "FUN"
       ],
       "blocks": [
         {
@@ -436,10 +436,10 @@
       "title": "Javascript news",
       "subtitle": "What's new in JS in 2023 year",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 235,
+      "createdAt": "05.04.2022",
       "tags": [
-        "IT"
+        "IT", "FUN"
       ],
       "blocks": [
         {
@@ -465,10 +465,10 @@
       "title": "Python news",
       "subtitle": "What's new in Python in 2023 year",
       "img": "https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 10225,
+      "createdAt": "22.04.2022",
       "tags": [
-        "IT"
+        "IT", "FUN"
       ],
       "blocks": [
         {
@@ -491,13 +491,13 @@
     {
       "id": "9",
       "userId": "1",
-      "title": "Golang news",
+      "title": "С наступающим!!!",
       "subtitle": "What's new in Go in 2023 year",
       "img": "https://cdn.dribbble.com/userupload/2624050/file/original-59266f4dea1c2aa43f2064cc0f3b165a.png?compress=1&resize=800x600&vertical=top",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 255,
+      "createdAt": "31.12.2022",
       "tags": [
-        "IT"
+        "FUN"
       ],
       "blocks": [
         {
@@ -523,10 +523,10 @@
       "title": "Javascript news",
       "subtitle": "What's new in JS in 2023 year",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 574,
+      "createdAt": "05.06.2022",
       "tags": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -549,13 +549,13 @@
     {
       "id": "11",
       "userId": "2",
-      "title": "Python news",
+      "title": "Some Important News",
       "subtitle": "What's new in Python in 2023 year",
       "img": "https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 111,
+      "createdAt": "23.11.2022",
       "tags": [
-        "IT"
+        "NEWS"
       ],
       "blocks": [
         {
@@ -581,10 +581,10 @@
       "title": "Golang news",
       "subtitle": "What's new in Go in 2023 year",
       "img": "https://cdn.dribbble.com/userupload/2624050/file/original-59266f4dea1c2aa43f2064cc0f3b165a.png?compress=1&resize=800x600&vertical=top",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1,
+      "createdAt": "13.09.2022",
       "tags": [
-        "IT"
+        "IT", "ECONOMICS"
       ],
       "blocks": [
         {
@@ -607,13 +607,13 @@
     {
       "id": "13",
       "userId": "1",
-      "title": "Javascript news",
+      "title": "С Днем знаний!!!",
       "subtitle": "What's new in JS in 2023 year",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 12,
+      "createdAt": "01.09.2022",
       "tags": [
-        "IT"
+        "FUN", "NEWS"
       ],
       "blocks": [
         {
@@ -639,8 +639,8 @@
       "title": "Python news",
       "subtitle": "What's new in Python in 2023 year",
       "img": "https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 453,
+      "createdAt": "22.10.2022",
       "tags": [
         "IT"
       ],
@@ -668,8 +668,8 @@
       "title": "Golang news",
       "subtitle": "What's new in Go in 2023 year",
       "img": "https://cdn.dribbble.com/userupload/2624050/file/original-59266f4dea1c2aa43f2064cc0f3b165a.png?compress=1&resize=800x600&vertical=top",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 2336,
+      "createdAt": "02.03.2022",
       "tags": [
         "IT"
       ],
@@ -694,13 +694,13 @@
     {
       "id": "16",
       "userId": "1",
-      "title": "Javascript news",
+      "title": "С Восьмым Марта!",
       "subtitle": "What's new in JS in 2023 year",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 100,
+      "createdAt": "08.03.2022",
       "tags": [
-        "IT"
+        "FUN", "NEWS"
       ],
       "blocks": [
         {
@@ -726,10 +726,10 @@
       "title": "Python news",
       "subtitle": "What's new in Python in 2023 year",
       "img": "https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 149,
+      "createdAt": "18.01.2022",
       "tags": [
-        "IT"
+        "IT", "NEWS"
       ],
       "blocks": [
         {
@@ -752,13 +752,13 @@
     {
       "id": "18",
       "userId": "1",
-      "title": "Golang news",
+      "title": "Article With All Tags",
       "subtitle": "What's new in Go in 2023 year",
       "img": "https://cdn.dribbble.com/userupload/2624050/file/original-59266f4dea1c2aa43f2064cc0f3b165a.png?compress=1&resize=800x600&vertical=top",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 144,
+      "createdAt": "02.02.2022",
       "tags": [
-        "IT"
+        "IT", "ECONOMICS", "NEWS", "FUN"
       ],
       "blocks": [
         {

@@ -4,20 +4,20 @@ import {
 import cn from 'shared/lib/classNames';
 import styles from './AppSelect.module.scss';
 
-export interface SelectOption {
-    value: string
+export interface SelectOption<T extends string> {
+    value: T
     content?: string
 }
-interface AppSelectProps {
+interface AppSelectProps<T extends string> {
     className?: string
     readOnly?: boolean
     label?: string
-    options?: SelectOption[]
+    options?: SelectOption<T>[]
     value?: string
-    onChange?: (value: string) => void
+    onChange?: (value: T) => void
 }
 
-const AppSelect: FC<AppSelectProps> = (props) => {
+const AppSelect = <T extends string>(props:AppSelectProps<T>) => {
     const {
         className,
         readOnly,
@@ -28,7 +28,7 @@ const AppSelect: FC<AppSelectProps> = (props) => {
     } = props;
 
     const changeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(event.target.value);
+        onChange?.(event.target.value as T);
     };
 
     const optionsList = useMemo(() => options?.map((opt) => (
@@ -59,4 +59,4 @@ const AppSelect: FC<AppSelectProps> = (props) => {
     );
 };
 
-export default memo(AppSelect);
+export default memo(AppSelect) as typeof AppSelect;

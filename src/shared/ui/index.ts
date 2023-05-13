@@ -2,7 +2,8 @@ import AppButton, { AppButtonTheme } from './AppButton/AppButton';
 import AppLink, { AppLinkTheme } from './AppLink/AppLink';
 import AppSelect from './AppSelect/AppSelect';
 import Avatar from './Avatar/Avatar';
-import Card from './Card/Card';
+import Card, { CardTheme } from './Card/Card';
+import CheckboxGroup, { CheckboxItem } from './CheckboxGroup/CheckboxGroup';
 import Code from './Code/Code';
 import CodeInput from './CodeInput/CodeInput';
 import Icon from './Icon/Icon';
@@ -20,6 +21,7 @@ export {
     Skeleton,
     Icon,
     Code,
-    Card,
+    Card, CardTheme,
     RadioGroup, RadioGroupSize,
+    CheckboxGroup, CheckboxItem,
 };

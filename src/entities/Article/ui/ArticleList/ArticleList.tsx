@@ -2,6 +2,8 @@ import {
     FC, memo,
 } from 'react';
 import cn from 'shared/lib/classNames';
+import { Text, TextAlign, TextSize } from 'shared/ui';
+import { useTranslation } from 'react-i18next';
 import {
     Article, ArticleViewType,
 } from '../../model/types/article';
@@ -28,15 +30,24 @@ const ArticleList:FC<ArticleListProps> = (props) => {
         isLoading,
         viewType = ArticleViewType.LIST,
     } = props;
+    const { t } = useTranslation('articles');
 
     const renderArticle = (article: Article) => (
         <ArticleListItem key={article.id} article={article} viewType={viewType} />
     );
 
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={cn(styles.ArticleList, className)}>
+                <Text size={TextSize.L} title={t('Articles not found')} />
+            </div>
+        );
+    }
+
     return (
         <div className={cn(styles.ArticleList, styles[viewType], className)}>
             {
-                articles.length ? articles.map(renderArticle) : null
+                articles.map(renderArticle)
             }
             {
                 isLoading && getSkeletons(viewType)
