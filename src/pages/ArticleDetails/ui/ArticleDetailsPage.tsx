@@ -1,27 +1,34 @@
-import { ArticleDetails } from 'entities/Article';
-import { FC, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
-import cn from 'shared/lib/classNames';
-import { Text, TextTheme } from 'shared/ui';
-import { CommentsList } from 'entities/Comment';
-import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 import { ReducersList, useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import { ArticleDetails, ArticleList, ArticleViewType } from 'entities/Article';
+import { CommentsList } from 'entities/Comment';
 import { CommentForm } from 'features/CommentForm';
 import {
     sendCommentForArticle,
 } from 'features/CommentForm/model/services/sendCommentForArticle/sendCommentForArticle';
+import { FC, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
+import cn from 'shared/lib/classNames';
+import { Text, TextTheme } from 'shared/ui';
 import { PageContainer } from 'widgets/PageContainer';
-import styles from './ArticlesDetailsPage.module.scss';
+import { getArticleCommentsIsLoading } from '../model/selectors/comments';
 import {
-    articleDetailCommentsReducer,
+    getArticleDetailsRecommendationsIsLoading,
+} from '../model/selectors/recommendations';
+import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
+import { fetchArticleRecommendations } from '../model/services/fetchRecommendations';
+import { articleDetailsPageReducer } from '../model/slice';
+import {
     getArticleComments,
 } from '../model/slice/ArticleDetailCommentsSlice';
-import { getArticleCommentsError, getArticleCommentsIsLoading } from '../model/selectors/comments';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
+import {
+    getArticleRecommendations,
+} from '../model/slice/ArticleDetailRecommendationsSlice';
+import styles from './ArticlesDetailsPage.module.scss';
 
 const reducers: ReducersList = {
-    articleDetailsComments: articleDetailCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 interface ArticleDetailsPageProps {
     className?: string
@@ -33,11 +40,16 @@ const ArticleDetailsPage:FC<ArticleDetailsPageProps> = (props) => {
     const dispatch = useAppDispatch();
     const comments = useAppSelector(getArticleComments.selectAll);
     const isLoading = useAppSelector(getArticleCommentsIsLoading);
-    const error = useAppSelector(getArticleCommentsError);
+    // const error = useAppSelector(getArticleCommentsError);
+
+    const recommendations = useAppSelector(getArticleRecommendations.selectAll);
+    const recommendationsIsLoading = useAppSelector(getArticleDetailsRecommendationsIsLoading);
+    // const recommendationsError = useAppSelector(getArticleDetailsRecommendationsError);
 
     useEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
-    }, []);
+        dispatch(fetchArticleRecommendations());
+    }, [dispatch, id]);
 
     const onSendCommentHandler = () => {
         dispatch(sendCommentForArticle(id));
@@ -54,6 +66,14 @@ const ArticleDetailsPage:FC<ArticleDetailsPageProps> = (props) => {
             <PageContainer className={cn(styles.ArticleDetailsPage, className)}>
                 <h1>{t('Article')}</h1>
                 <ArticleDetails id={id} />
+                <Text title={t('Recommendations')} className={styles.commentsHeader} />
+                <ArticleList
+                    isLoading={recommendationsIsLoading}
+                    articles={recommendations}
+                    viewType={ArticleViewType.GRID}
+                    linkTarget="_blank"
+                    className={styles.recommendationsList}
+                />
                 <Text title={t('Comments header')} className={styles.commentsHeader} />
                 <CommentForm onSendComment={onSendCommentHandler} />
                 <CommentsList comments={comments} isLoading={isLoading} />

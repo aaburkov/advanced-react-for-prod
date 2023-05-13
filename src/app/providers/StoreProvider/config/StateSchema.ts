@@ -1,16 +1,18 @@
 import {
     AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
+import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
-import { CombinedState } from 'redux';
-import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetails';
 import { CommentFormSchema } from 'features/CommentForm/model/types/commentFormSchema';
+import {
+    ArticleDetailsPageSchema,
+} from 'pages/ArticleDetails';
 import { ArticlesPageSchema } from 'pages/Articles/model/types/ArticlesPageSchema';
+import { CombinedState } from 'redux';
 import { ScrollSchema } from 'widgets/PageContainer/model/types/scroll';
 
 export interface StateSchema {
@@ -23,7 +25,7 @@ export interface StateSchema {
     profile?: ProfileSchema,
     articlesPage?: ArticlesPageSchema,
     articlesDetails?: ArticleDetailsSchema,
-    articleDetailsComments?: ArticleDetailsCommentsSchema,
+    articleDetailsPage?: ArticleDetailsPageSchema,
     commentForm?: CommentFormSchema,
 }
 
@@ -41,7 +43,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 }
 
 export type ReducersList = {
-    [name in StateSchemaKey]?: Reducer
+    [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>
 }
 export type ReducersListEntry = [StateSchemaKey, Reducer]
 

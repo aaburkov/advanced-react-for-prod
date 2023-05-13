@@ -1,7 +1,10 @@
 import {
-    FC, memo, useCallback,
+    FC, HTMLAttributeAnchorTarget, memo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
+import EyeIcon from 'shared/assets/icons/eye.svg';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cn from 'shared/lib/classNames';
 import {
     AppButton,
@@ -9,34 +12,32 @@ import {
     Avatar,
     Card, Icon, Text, TextSize,
 } from 'shared/ui';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import { Link, useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import {
     Article, ArticleBlockTypes, ArticleTextBlock, ArticleViewType,
 } from '../../model/types/article';
-import styles from './ArticleListItem.module.scss';
 import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import styles from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
    className?: string,
    article: Article,
-   viewType: ArticleViewType
+   viewType: ArticleViewType,
+   linkTarget?: HTMLAttributeAnchorTarget
 }
 
 const ArticleListItem:FC<ArticleListItemProps> = (props) => {
-    const { className, article, viewType } = props;
+    const {
+        className, article, viewType, linkTarget,
+    } = props;
 
     const { t } = useTranslation('articles');
     const navigate = useNavigate();
-    const onNavigateToArticle = useCallback(() => {
-        navigate(`${RoutePath.articles}/${article.id}`);
-    }, [article.id, navigate]);
 
     if (viewType === ArticleViewType.GRID) {
         return (
             <Link
                 to={`${RoutePath.articles_detail}/${article.id}`}
+                target={linkTarget}
                 className={cn(styles[viewType], className)}
             >
                 <Card>
@@ -100,9 +101,14 @@ const ArticleListItem:FC<ArticleListItemProps> = (props) => {
                 )
             }
             <div className={styles.footer}>
-                <AppButton onClick={onNavigateToArticle} theme={AppButtonTheme.OUTLINE}>
-                    {t('Read full')}
-                </AppButton>
+                <Link
+                    to={`${RoutePath.articles_detail}/${article.id}`}
+                    target={linkTarget}
+                >
+                    <AppButton theme={AppButtonTheme.OUTLINE}>
+                        {t('Read full')}
+                    </AppButton>
+                </Link>
                 <div className={styles.infoWrapper}>
                     <Text
                         text={String(article.views)}

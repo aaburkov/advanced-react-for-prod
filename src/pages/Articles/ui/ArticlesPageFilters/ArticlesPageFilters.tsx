@@ -117,7 +117,7 @@ const ArticlesPageFilters:FC<ArticlesPageFiltersProps> = (props) => {
     const onChangeTagsList = useCallback((value: ArticleTags[]) => {
         dispatch(articlesPageActions.setTagsList(value));
         fetchData();
-    }, [dispatch]);
+    }, [dispatch, fetchData]);
 
     const onChangeViewType = useCallback((value: ArticleViewType) => {
         dispatch(articlesPageActions.setViewType(value));

@@ -1,5 +1,6 @@
 import {
-    ChangeEvent, FC, memo, useMemo,
+    ChangeEvent,
+    memo, useMemo,
 } from 'react';
 import cn from 'shared/lib/classNames';
 import styles from './AppSelect.module.scss';

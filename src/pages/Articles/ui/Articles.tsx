@@ -6,20 +6,18 @@ import { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
 
-import { PageContainer } from 'widgets/PageContainer';
 import { useSearchParams } from 'react-router-dom';
+import { PageContainer } from 'widgets/PageContainer';
 import {
-    getArticlesPageInited,
     getArticlesPageIsLoading,
     getArticlesPageViewType,
 } from '../model/selectors/articlesPage';
-import { fetchArticles } from '../model/services/fetchArticles';
 import { fetchMoreArticles } from '../model/services/fetchMoreArticles';
+import { initArticles } from '../model/services/initArticles';
 import {
     articlesPageReducer, getArticlesList,
 } from '../model/slice/ArticlesPageSlice';
 import ArticlesPageFilters from './ArticlesPageFilters/ArticlesPageFilters';
-import { initArticles } from '../model/services/initArticles';
 
 const initialReducers: ReducersList = {
     articlesPage: articlesPageReducer,

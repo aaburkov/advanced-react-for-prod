@@ -1,9 +1,9 @@
 import {
-    FC, memo,
+    FC, HTMLAttributeAnchorTarget, memo,
 } from 'react';
-import cn from 'shared/lib/classNames';
-import { Text, TextAlign, TextSize } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
+import cn from 'shared/lib/classNames';
+import { Text, TextSize } from 'shared/ui';
 import {
     Article, ArticleViewType,
 } from '../../model/types/article';
@@ -15,7 +15,8 @@ interface ArticleListProps {
    className?: string,
    articles: Article[],
    isLoading: boolean,
-   viewType?: ArticleViewType
+   viewType?: ArticleViewType,
+   linkTarget?: HTMLAttributeAnchorTarget
 }
 const getSkeletons = (viewType: ArticleViewType) => new Array(
     viewType === ArticleViewType.GRID ? 9 : 3,
@@ -29,11 +30,17 @@ const ArticleList:FC<ArticleListProps> = (props) => {
         articles,
         isLoading,
         viewType = ArticleViewType.LIST,
+        linkTarget,
     } = props;
     const { t } = useTranslation('articles');
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem key={article.id} article={article} viewType={viewType} />
+        <ArticleListItem
+            key={article.id}
+            article={article}
+            viewType={viewType}
+            linkTarget={linkTarget}
+        />
     );
 
     if (!isLoading && !articles.length) {

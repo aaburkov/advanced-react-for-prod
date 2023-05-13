@@ -26,7 +26,7 @@ const CurrencySelect:FC<CurrencySelectProps> = (props) => {
 
     const changeHandler = useCallback((value: Currency) => {
         onChange?.(value as Currency);
-    }, []);
+    }, [onChange]);
 
     return (
         <AppSelect<Currency>

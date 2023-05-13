@@ -6,3 +6,9 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.recommendationsList {
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
