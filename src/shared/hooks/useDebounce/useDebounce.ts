@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { MutableRefObject, useCallback, useRef } from 'react';
 
 export function useDebounce(callback: (...args: any[]) => void, delay: number) {

@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef } from 'react';
+import { MutableRefObject, useEffect } from 'react';
 
 export interface UseInifiniteScrollOptions {
     callback?: () => void
@@ -34,5 +34,6 @@ export function useInifiniteScroll(
                 observer.unobserve(curTriggerRef);
             }
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 }

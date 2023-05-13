@@ -8,12 +8,6 @@ import {
 import i18n from 'shared/config/i18n/i18n';
 import { getCommentFormText } from '../../selectors/getCommentForm/getCommentForm';
 
-interface sendCommentForArticleProps {
-    text: string
-    articleId: string
-    userId: string
-}
-
 export const sendCommentForArticle = createAsyncThunk<
     IComment,
     string | undefined,
