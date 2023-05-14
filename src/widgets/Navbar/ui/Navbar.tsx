@@ -1,12 +1,13 @@
 import cn from 'shared/lib/classNames';
 import {
-    AppButton, AppButtonTheme,
+    AppButton, AppButtonTheme, AppLink, AppLinkTheme, Text, TextTheme,
 } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { FC, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/hooks';
 import { getUserAuthData, userActions } from 'entities/User';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -33,9 +34,13 @@ const Navbar:FC<NavbarProps> = ({ className }: NavbarProps) => {
 
     return (
         <nav className={cn(styles.Navbar, className)}>
+            <Text className={styles.appName} title={t('MyAPP')} theme={TextTheme.SECONDARY} />
             {
                 authData ? (
                     <div className={styles.links}>
+                        <AppLink to={RoutePath.articles_create} theme={AppLinkTheme.SECONDARY}>
+                            {t('Create article')}
+                        </AppLink>
                         <AppButton
                             theme={AppButtonTheme.CLEAR_INVERTED}
                             onClick={onLogount}
@@ -43,7 +48,6 @@ const Navbar:FC<NavbarProps> = ({ className }: NavbarProps) => {
                             {t('Logout')}
 
                         </AppButton>
-
                     </div>
                 ) : (
                     <div className={styles.links}>

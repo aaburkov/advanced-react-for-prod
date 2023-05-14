@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getArticleDetaildData, getArticleDetaildError, getArticleDetaildIsLoading } from './articleDetails';
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails';
 
 describe('articleDetails selectors', () => {
     it('get data', () => {
@@ -13,7 +13,7 @@ describe('articleDetails selectors', () => {
             },
         };
 
-        expect(getArticleDetaildData(state as StateSchema)).toEqual(data);
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(data);
     });
 
     it('get error', () => {
@@ -29,7 +29,7 @@ describe('articleDetails selectors', () => {
             },
         };
 
-        expect(getArticleDetaildError(state as StateSchema)).toEqual('test string');
+        expect(getArticleDetailsError(state as StateSchema)).toEqual('test string');
     });
 
     it('get isLoading', () => {
@@ -44,7 +44,7 @@ describe('articleDetails selectors', () => {
             },
         };
 
-        expect(getArticleDetaildIsLoading(state as StateSchema)).toEqual(true);
+        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(true);
     });
 
     it('get isLoading empty state', () => {
@@ -52,6 +52,6 @@ describe('articleDetails selectors', () => {
             articlesDetails: {},
         };
 
-        expect(getArticleDetaildIsLoading(state as StateSchema)).toEqual(false);
+        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(false);
     });
 });

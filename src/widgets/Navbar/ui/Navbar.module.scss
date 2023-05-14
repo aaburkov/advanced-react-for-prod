@@ -8,9 +8,10 @@
 }
 
 .links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
     margin-left: auto;
-
-
 }
 
 .item {
@@ -20,4 +21,10 @@
 
 .item:not(:last-child) {
     margin-right: 20px;
+}
+
+.appName {
+    font-weight: bold;
+    width: var(--sidebar-width-collapsed);
+    text-align: center;
 }

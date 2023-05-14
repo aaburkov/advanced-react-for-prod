@@ -1,31 +1,27 @@
+import { ReducersList, useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import {
     FC, memo, useCallback, useEffect,
 } from 'react';
-import cn from 'shared/lib/classNames';
-import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
-import { ReducersList, useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import {
-    AppButton,
-    AppButtonTheme,
-    Avatar, Icon, Skeleton, Text, TextAlign, TextSize, TextTheme,
-} from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import EyeIcon from 'shared/assets/icons/eye.svg';
-import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { articleDetailsReducer } from '../../model/slice/ArticleDetailSlice';
-import { fetchArticleById } from '../../model/services/fetchArticleById';
+import DynamicModuleLoader from 'shared/components/DynamicModuleLoader';
+import cn from 'shared/lib/classNames';
 import {
-    getArticleDetaildData,
-    getArticleDetaildError,
-    getArticleDetaildIsLoading,
+    Avatar, Icon, Skeleton, Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui';
+import {
+    getArticleDetailsData,
+    getArticleDetailsError,
+    getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
-import styles from './ArticleDetails.module.scss';
+import { fetchArticleById } from '../../model/services/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/ArticleDetailSlice';
 import { ArticleBlock, ArticleBlockTypes } from '../../model/types/article';
 import ArticleCodeBlockComponent from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import ArticleImageBlockComponent from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import styles from './ArticleDetails.module.scss';
 
 const initialReducers: ReducersList = {
     articlesDetails: articleDetailsReducer,
@@ -40,15 +36,10 @@ const ArticleDetails:FC<ArticleDetailsProps> = (props) => {
 
     const { t } = useTranslation('articles');
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
 
-    const isLoading = useAppSelector(getArticleDetaildIsLoading);
-    const error = useAppSelector(getArticleDetaildError);
-    const article = useAppSelector(getArticleDetaildData);
-
-    const onBackToArticles = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, []);
+    const isLoading = useAppSelector(getArticleDetailsIsLoading);
+    const error = useAppSelector(getArticleDetailsError);
+    const article = useAppSelector(getArticleDetailsData);
 
     useEffect(() => {
         dispatch(fetchArticleById(id));
@@ -115,9 +106,6 @@ const ArticleDetails:FC<ArticleDetailsProps> = (props) => {
     } else {
         content = (
             <>
-                <AppButton onClick={onBackToArticles} theme={AppButtonTheme.OUTLINE}>
-                    {t('To articles')}
-                </AppButton>
                 <Avatar size={200} src={article?.img} className={styles.avatar} />
                 <Text title={article?.title} text={article?.subtitle} size={TextSize.L} />
                 <div className={styles.articleInfo}>

@@ -26,5 +26,6 @@
   "Cant load article data": "Неудалось загрузить статью",
   "Send": "Отправить",
   "Comment input placeholder": "Ваш коментарий",
-  "Wrong data": "Неверные данные"
+  "Wrong data": "Неверные данные",
+  "Create article": "Создать статью"
 }

@@ -1,5 +1,7 @@
 import { AboutPage } from 'pages/About';
 import ArticleDetails from 'pages/ArticleDetails/ui/ArticleDetailsPage';
+import { ArticleEditPage } from 'pages/ArticleEditPage';
+import { ArticleNewPage } from 'pages/ArticleNewPage';
 import { ArticlesPage } from 'pages/Articles';
 import { MainPage } from 'pages/Main';
 import { NotFoundPage } from 'pages/NotFoundPage';
@@ -18,6 +20,8 @@ export enum AppRoutes {
     USER = 'user',
     ARTICLES = 'articles',
     ARTICLE_DETAIL = 'articles_detail',
+    ARTICLE_CREATE = 'articles_create',
+    ARTICLE_EDIT = 'articles_edit',
     NOT_FOUND = 'not_found',
 }
 
@@ -28,6 +32,8 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.USER]: '/user', // :id
     [AppRoutes.ARTICLES]: '/articles',
     [AppRoutes.ARTICLE_DETAIL]: '/articles', // :id
+    [AppRoutes.ARTICLE_CREATE]: '/articles/create',
+    [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit', // :id
     // last
     [AppRoutes.NOT_FOUND]: '*',
 };
@@ -59,6 +65,16 @@ export const routeConfig: AppRoutesProps[] = [
     {
         path: `${RoutePath[AppRoutes.ARTICLE_DETAIL]}/:id`,
         element: <ArticleDetails />,
+        protected: true,
+    },
+    {
+        path: `${RoutePath[AppRoutes.ARTICLE_CREATE]}`,
+        element: <ArticleNewPage />,
+        protected: true,
+    },
+    {
+        path: `${RoutePath[AppRoutes.ARTICLE_EDIT]}`,
+        element: <ArticleEditPage />,
         protected: true,
     },
     // last

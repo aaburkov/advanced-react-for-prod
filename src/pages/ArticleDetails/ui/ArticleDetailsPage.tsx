@@ -26,6 +26,7 @@ import {
     getArticleRecommendations,
 } from '../model/slice/ArticleDetailRecommendationsSlice';
 import styles from './ArticlesDetailsPage.module.scss';
+import ArticleDetailsPageHeader from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -64,7 +65,7 @@ const ArticleDetailsPage:FC<ArticleDetailsPageProps> = (props) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <PageContainer className={cn(styles.ArticleDetailsPage, className)}>
-                <h1>{t('Article')}</h1>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text title={t('Recommendations')} className={styles.commentsHeader} />
                 <ArticleList
